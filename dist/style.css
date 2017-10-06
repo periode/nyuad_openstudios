@@ -78,9 +78,7 @@ canvas {
   position: relative;
   float: right;
   z-index: 2;
-  width: 30%;
-  max-width: 100%;
-  min-width: 30%;
+  width: 25%;
   /*height: auto;*/
   height: auto;
   transition: max-height 0.5s ease-in-out;
@@ -204,36 +202,56 @@ hr {
 audio {
   display: none; }
 @media only screen and (max-device-width: 640px), only screen and (max-device-width: 667px), only screen and (max-width: 480px) and (orientation: portrait) {
+  #banner {
+    position: fixed;
+    width: 100%;
+    padding: 0;
+    margin: 0; }
+  #banner h1 {
+    margin: 10px;
+    padding-top: 0px;
+    font-size: 70px; }
+  #clear {
+    display: none; }
+  #howler_text {
+    display: none; }
+  #howler_logo {
+    width: 70px;
+    height: 70px;
+    margin-right: 10px; }
+  #container {
+    height: 100%;
+    width: 100%;
+    overflow: visible; }
+  #canvas {
+    overflow: visible;
+    display: block; }
   #info {
+    position: fixed;
+    top: 60%;
+    left: 0px;
+    z-index: 3;
     border: 10px solid #13a89e;
     background-color: white;
     color: #13a89e;
-    font-size: 3em;
-    position: fixed;
-    z-index: 3;
-    width: auto;
-    max-width: 100%;
-    min-width: 80%;
-    height: auto;
-    min-height: 35%;
-    bottom: 0%;
+    font-size: 1em;
+    width: 85%;
+    height: 29%;
     padding: 5%;
-    margin: 5%;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch; }
   hr {
     background-color: #13a89e;
     height: 5px;
     border: none; }
-  #switch {
-    top: 3%;
-    left: 5%; }
   #clear {
     top: 3%;
     right: 5%; }
   #info {
-    font-size: 2em; }
+    font-size: 3em; }
   #description {
-    font-size: 1.5em; }
-  #title {
+    font-size: 1em; }
+  #description ul {
+    font-size: 0.8em; }
+  #title div {
     font-size: 2em; } }

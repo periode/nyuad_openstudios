@@ -25,6 +25,9 @@ function handleButton (event){
   loadData(current_id);
 }
 
+var mobile_h = 800;
+var mobile_w = 950;
+
 exports.init = function() {
   canvas = document.getElementById('myCanvas');
 	// Create an empty project and a view for the canvas:
@@ -48,10 +51,14 @@ exports.init = function() {
       paper.project.view.zoom = 0.75;
       canvas.style.top = '-8%';
       canvas.style.left = '-10%';
+      ground_floor.bounds.width = window.innerWidth*0.8;
+      ground_floor.bounds.height = window.innerHeight;
+    }else{
+      ground_floor.bounds.width = mobile_w;
+      ground_floor.bounds.height = mobile_h;
     }
 
-    ground_floor.bounds.width = window.innerWidth*0.8;
-    ground_floor.bounds.height = window.innerHeight;
+
 
     for(var i = 0; i < buttons.length; i++){
       buttons[i].onMouseDown =  handleButton;
@@ -64,8 +71,16 @@ exports.init = function() {
     first_floor = item;
     buttons = first_floor.children.Layer_2.children.Buttons.children;
 
-    first_floor.bounds.width = window.innerWidth*0.8;
-    first_floor.bounds.height = window.innerHeight;
+    if(!isMobile()){
+      ground_floor.bounds.width = window.innerWidth*0.8;
+      ground_floor.bounds.height = window.innerHeight;
+    }else{
+      canvas.style.top = '4%';
+      canvas.style.left = '2%';
+      canvas.style.width = '98%';
+      ground_floor.bounds.width = mobile_w;
+      ground_floor.bounds.height = mobile_h;
+    }
 
     for(var i = 0; i < buttons.length; i++){
       buttons[i].onMouseDown =  handleButton;
