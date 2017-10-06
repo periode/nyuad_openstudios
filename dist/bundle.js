@@ -74,27 +74,26 @@ var _eventHandler = __webpack_require__(1);
 
 var ev = _interopRequireWildcard(_eventHandler);
 
-__webpack_require__(3);
-
-__webpack_require__(18);
-
 __webpack_require__(4);
+
+var _radio = __webpack_require__(3);
+
+var radio = _interopRequireWildcard(_radio);
 
 __webpack_require__(5);
 
-__webpack_require__(16);
+__webpack_require__(6);
+
+__webpack_require__(7);
+
+__webpack_require__(8);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-//---SCRIPTS
-document.body.addEventListener('onload', ev.init(), true);
-
 //---CSS
+ev.init(); //---SCRIPTS
 
-
-function check() {
-  console.log('check');
-}
+radio.pulsate();
 
 /***/ }),
 /* 1 */
@@ -1333,6 +1332,23 @@ _exports.data = [
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+
+
+var _exports = module.exports = {};
+
+_exports.pulsate = function () {
+  setInterval(pulse, 800);
+};
+
+function pulse() {
+  if (document.getElementById("howler_logo").style.opacity == 0.2) document.getElementById("howler_logo").style.opacity = 1;else document.getElementById("howler_logo").style.opacity = 0.2;
+}
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 // var ViewZoom = function(){
 //
 //     var project = paper.project;
@@ -1592,40 +1608,28 @@ _exports.data = [
 
 
 /***/ }),
-/* 4 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
 /* 5 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 6 */,
-/* 7 */,
-/* 8 */,
-/* 9 */,
-/* 10 */,
-/* 11 */,
-/* 12 */,
-/* 13 */,
-/* 14 */,
-/* 15 */,
-/* 16 */
+/* 6 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 17 */,
-/* 18 */
-/***/ (function(module, exports, __webpack_require__) {
+/* 7 */
+/***/ (function(module, exports) {
 
-"use strict";
+// removed by extract-text-webpack-plugin
 
+/***/ }),
+/* 8 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);
