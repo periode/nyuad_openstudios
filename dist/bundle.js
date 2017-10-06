@@ -76,15 +76,21 @@ var ev = _interopRequireWildcard(_eventHandler);
 
 __webpack_require__(3);
 
+__webpack_require__(18);
+
 __webpack_require__(4);
 
 __webpack_require__(5);
 
+__webpack_require__(16);
+
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-//---CSS
 //---SCRIPTS
 document.body.addEventListener('onload', ev.init(), true);
+
+//---CSS
+
 
 function check() {
   console.log('check');
@@ -148,8 +154,8 @@ _exports.init = function () {
 
     if (!isMobile()) {
       paper.project.view.zoom = 0.75;
-      canvas.style.top = '-12%';
-      canvas.style.left = '8%';
+      canvas.style.top = '-8%';
+      canvas.style.left = '-10%';
     }
 
     ground_floor.bounds.width = window.innerWidth * 0.8;
@@ -216,8 +222,8 @@ function dragMove(e) {
 }
 
 function populate(info) {
+  $('#clear').css('opacity', 1);
 
-  console.log('populate', info);
   if (holder.style.opacity != 1) {
     holder.style.display = "block";
     holder.style.opacity = 1;
@@ -242,7 +248,7 @@ function populate(info) {
     time.innerHTML = info.timing;
     place.innerHTML = info.location;
     description.innerHTML = info.description;
-  }, 250);
+  }, 500);
 
   setTimeout(showContent, 500);
 }
@@ -273,6 +279,7 @@ function hideContent() {
 
 function clear() {
   holder.style.opacity = 0;
+  $('#clear').css('opacity', 0);
   setTimeout(function () {
     holder.style.display = "none";
   }, 500);
@@ -1595,6 +1602,30 @@ _exports.data = [
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 6 */,
+/* 7 */,
+/* 8 */,
+/* 9 */,
+/* 10 */,
+/* 11 */,
+/* 12 */,
+/* 13 */,
+/* 14 */,
+/* 15 */,
+/* 16 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 17 */,
+/* 18 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
 
 /***/ })
 /******/ ]);

@@ -1,0 +1,51 @@
+@media only screen and (max-device-width: 640px), only screen and (max-device-width: 667px), only screen and (max-width: 480px) and (orientation : portrait) {
+  #info{
+    border: 10px solid rgb(19, 168, 158);
+    background-color: white;
+    color: rgb(19, 168, 158);
+    font-size: 3em;
+    position: fixed;
+    z-index: 3;
+
+    width: auto;
+    max-width: 100%;
+    min-width: 80%;
+
+    height: auto;
+    min-height: 35%;
+
+    bottom: 0%;
+    padding: 5%;
+    margin: 5%;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  hr{
+    background-color:rgb(19, 168, 158);
+    height: 5px;
+    border: none;
+  }
+
+  #switch{
+    top: 3%;
+    left: 5%;
+  }
+
+  #clear{
+    top: 3%;
+    right: 5%;
+  }
+
+  #info{
+    font-size: 2em;
+  }
+
+  #description{
+    font-size: 1.5em;
+  }
+
+  #title{
+    font-size: 2em;
+  }
+}

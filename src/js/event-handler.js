@@ -46,8 +46,8 @@ exports.init = function() {
 
     if(!isMobile()){
       paper.project.view.zoom = 0.75;
-      canvas.style.top = '-12%';
-      canvas.style.left = '8%';
+      canvas.style.top = '-8%';
+      canvas.style.left = '-10%';
     }
 
     ground_floor.bounds.width = window.innerWidth*0.8;
@@ -114,8 +114,8 @@ function dragMove(e) {
 }
 
 function populate(info){
+  $('#clear').css('opacity', 1);
 
-  console.log('populate', info);
   if(holder.style.opacity != 1){
     holder.style.display = "block";
     holder.style.opacity = 1;
@@ -141,7 +141,7 @@ function populate(info){
     time.innerHTML = info.timing;
     place.innerHTML = info.location;
     description.innerHTML = info.description;
-  }, 250);
+  }, 500);
 
   setTimeout(showContent, 500);
 }
@@ -172,6 +172,7 @@ function hideContent(){
 
 function clear(){
   holder.style.opacity = 0;
+  $('#clear').css('opacity', 0);
   setTimeout(function(){holder.style.display = "none"}, 500);
 }
 
