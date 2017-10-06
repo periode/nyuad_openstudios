@@ -1,7 +1,13 @@
-$bg-color: pink;
-$legend-font: 'Minon-Regular';
-$legend-desc: 'Minion-Italic';
-$titles-font: 'Gotham-Regular';
+$bg-color: white;
+$theater-color: purple;
+$film-color: red;
+$im-color: yellow;
+$music-color: black;
+$visarts-color: blue;
+
+$legend-font: Minon-Regular;
+$legend-desc: Minion-Italic;
+$titles-font: Gotham-Regular;
 
 body{
 	background-color: $bg-color;
@@ -31,6 +37,29 @@ canvas{
     height: 100%;
 }*/
 
+.floors{
+	font-size: 2em;
+	font-family: $titles-font;
+
+	-webkit-transition: color 0.5s ease-in-out;
+  -moz-transition: color 0.5s ease-in-out;
+
+	cursor: pointer;
+
+	position: absolute;
+	z-index: 3;
+	top: 3%;
+	left: 2%;
+}
+
+#ground_floor{
+	opacity: 1;
+	margin-top: 10px;
+}
+
+#first_floor{
+	opacity: 0.3;
+}
 
 
 #info{
@@ -88,26 +117,16 @@ canvas{
  font-family: $legend-font;
 }
 
-#switch{
-  background-image: url('./images/switch.png');
-  position: absolute;
-  z-index: 3;
-  top: 3%;
-  left: 2%;
-  width: 48px;
-  height: 48px;
-  background-color: white;
-}
-
 #clear{
   background-image: url('./images/clear.png');
   position: absolute;
   z-index: 3;
   top: 3%;
   right: 2%;
-  width: 50px;
-  height: 50px;
-  /*background-color: rgb(19, 168, 158);*/
+  width: 48px;
+  height: 48px;
+  background-color: white;
+	cursor: pointer;
 }
 
 .web{

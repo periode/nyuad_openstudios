@@ -2,20 +2,15 @@ var exports = module.exports = {};
 
 import * as all_events from './data.js'
 
-console.log(all_events);
 
 var map, buttons;
-
-var current_floor = 0;
-
 var holder, title, time, place, description;
-
-var targetStartX, targetStartY, touchStartX, touchStartY;
 
 var zoomer;
 var canvas;
 
 var first_floor, ground_floor;
+var current_floor = 0;
 
 function isMobile(){
 	if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
@@ -35,8 +30,9 @@ exports.init = function() {
 	// Create an empty project and a view for the canvas:
 	paper.setup(canvas);
 
-  $('#switch').on('click', this.switchMap);
-  $('#clear').on('click', this.clear);
+  $('#first_floor').on('click', this.switchMap);
+  $('#ground_floor').on('click', this.switchMap);
+  $('#clear').on('click', clear);
 
   holder = document.getElementById('info');
   title = document.getElementById('title');
@@ -54,8 +50,8 @@ exports.init = function() {
       canvas.style.left = '8%';
     }
 
-    ground_floor.bounds.width = 980;
-    ground_floor.bounds.height = 677;
+    ground_floor.bounds.width = window.innerWidth*0.8;
+    ground_floor.bounds.height = window.innerHeight;
 
     for(var i = 0; i < buttons.length; i++){
       buttons[i].onMouseDown =  handleButton;
@@ -68,8 +64,8 @@ exports.init = function() {
     first_floor = item;
     buttons = first_floor.children.Layer_2.children.Buttons.children;
 
-    first_floor.bounds.width = 980;
-    first_floor.bounds.height = 677;
+    first_floor.bounds.width = window.innerWidth*0.8;
+    first_floor.bounds.height = window.innerHeight;
 
     for(var i = 0; i < buttons.length; i++){
       buttons[i].onMouseDown =  handleButton;
@@ -80,8 +76,8 @@ exports.init = function() {
 
   // Set initial position.
   canvas.style.position = 'absolute'; // 'absolute' also works.
-  canvas.addEventListener('touchstart', this.dragStart);
-  canvas.addEventListener('touchmove',  this.dragMove);
+  canvas.addEventListener('touchstart', dragStart);
+  canvas.addEventListener('touchmove',  dragMove);
 }
 
 exports.switchMap = function (){
@@ -98,14 +94,16 @@ function loadData(current_id){
   }
 }
 
-exports.dragStart = function(e) {
+
+var targetStartX, targetStartY, touchStartX, touchStartY;
+function dragStart(e) {
   targetStartX = parseInt(e.target.style.left);
   targetStartY = parseInt(e.target.style.top);
   touchStartX  = e.touches[0].pageX;
   touchStartY  = e.touches[0].pageY;
 }
 
-exports.dragMove = function(e) {
+function dragMove(e) {
   // Calculate touch offsets
   var touchOffsetX = e.touches[0].pageX - touchStartX,
       touchOffsetY = e.touches[0].pageY - touchStartY;
@@ -181,10 +179,14 @@ function toggleVisibility(){
   if(current_floor == 0){
     ground_floor.visible = false;
     first_floor.visible = true;
+    $('#ground_floor').css('opacity', 0.3);
+    $('#first_floor').css('opacity', 1);
     current_floor = 1;
   }else{
     first_floor.visible = false;
     ground_floor.visible = true;
+    $('#ground_floor').css('opacity', 1);
+    $('#first_floor').css('opacity', 0.3);
     current_floor = 0;
   }
 }
