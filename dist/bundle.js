@@ -88,10 +88,14 @@ __webpack_require__(7);
 
 __webpack_require__(8);
 
+__webpack_require__(9);
+
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
+//---SCRIPTS
+ev.init();
+
 //---CSS
-ev.init(); //---SCRIPTS
 
 radio.pulsate();
 
@@ -1647,6 +1651,12 @@ function pulse() {
 
 /***/ }),
 /* 8 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 9 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
