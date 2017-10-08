@@ -135,19 +135,6 @@ canvas {
 #description {
   font-family: Minon-Regular; }
 
-#clear {
-  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAQAAAD9CzEMAAAAsklEQVR4Ae2WsQrEIBAFH/iRUfN1yUnIRwoeuXKbc1CbsGM/g1ssK8dxXkxQ0aZedp0KTH+rqXYmdlU1XSRR1H6vKnbqn/dRN1HVJv7q7X95AutBIgE9INkE1/ME14NEBnpAtgmk5wmo54n5ejN1oOcJql8fWD8irq9mR03Xb4okwfUPKMH1NpGm6cGmHdXzBNfbRB7Sg007oJ+aOPv0JnGQw+vCh1dRWHk6HgpyHOe1fAE3Nwx9TaPILQAAAABJRU5ErkJggg==);
-  position: absolute;
-  z-index: 3;
-  top: 3%;
-  right: 2%;
-  width: 48px;
-  height: 48px;
-  background-color: white;
-  cursor: pointer;
-  -webkit-transition: opacity 0.5s ease-in-out;
-  -moz-transition: opacity 0.5s ease-in-out; }
-
 .web {
   display: block;
   margin-right: auto;

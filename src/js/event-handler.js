@@ -35,7 +35,6 @@ exports.init = function() {
 
   $('#first_floor').on('click', this.switchMap);
   $('#ground_floor').on('click', this.switchMap);
-  $('#clear').on('click', clear);
 
   holder = document.getElementById('info');
   title = document.getElementById('title');
@@ -97,8 +96,19 @@ exports.init = function() {
 
 exports.switchMap = function (){
   canvas.style.opacity = 0;
+  toggleFloorText(); 
   setTimeout(toggleVisibility, 500);
   setTimeout(function(){canvas.style.opacity = 1;}, 525);
+}
+
+function toggleFloorText(){
+  if(current_floor == 0){
+    $('#ground_floor').css('opacity', 0.3);
+    $('#first_floor').css('opacity', 1);
+  }else{
+    $('#ground_floor').css('opacity', 1);
+    $('#first_floor').css('opacity', 0.3);
+  }
 }
 
 function loadData(current_id){
@@ -129,7 +139,6 @@ function dragMove(e) {
 }
 
 function populate(info){
-  $('#clear').css('opacity', 1);
 
   if(holder.style.opacity != 1){
     holder.style.display = "block";
@@ -185,24 +194,14 @@ function hideContent(){
   description.style.opacity = 0;
 }
 
-function clear(){
-  holder.style.opacity = 0;
-  $('#clear').css('opacity', 0);
-  setTimeout(function(){holder.style.display = "none"}, 500);
-}
-
 function toggleVisibility(){
   if(current_floor == 0){
     ground_floor.visible = false;
     first_floor.visible = true;
-    $('#ground_floor').css('opacity', 0.3);
-    $('#first_floor').css('opacity', 1);
     current_floor = 1;
   }else{
     first_floor.visible = false;
     ground_floor.visible = true;
-    $('#ground_floor').css('opacity', 1);
-    $('#first_floor').css('opacity', 0.3);
     current_floor = 0;
   }
 }

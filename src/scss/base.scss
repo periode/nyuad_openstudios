@@ -167,21 +167,6 @@ canvas{
  font-family: $legend-font;
 }
 
-#clear{
-  background-image: url('./images/clear.png');
-  position: absolute;
-  z-index: 3;
-  top: 3%;
-  right: $margin-side;
-  width: 48px;
-  height: 48px;
-  background-color: white;
-	cursor: pointer;
-
-	-webkit-transition: opacity 0.5s ease-in-out;
-	-moz-transition: opacity 0.5s ease-in-out;
-}
-
 .web{
   display: block;
   margin-right: auto;
