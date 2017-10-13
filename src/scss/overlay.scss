@@ -3,7 +3,7 @@
   width: 100%;
   height: 100%;
   z-index: 4;
-  display: block;
+  display: none;
 
   background-color: rgba(0, 0, 0, 0.8);
 }
@@ -19,9 +19,13 @@
 }
 
 #countdown{
-  color: white;
-  font-size: 5em;
   width: 100%;
   height: 100%;
-  text-align: center;
+  display: none;
+}
+
+#stream{
+  width: 600px;
+  height: 600px;
+  display: none;
 }

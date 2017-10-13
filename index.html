@@ -8,23 +8,22 @@
   <link rel="stylesheet" href="dist/style.css"></link>
 </head>
 <body>
-  <!-- <div id="overlay">
+ <div id="overlay">
     <div id="surface">
-      <div id="countdown">
-        10:00.00
-      </div>
-      <canvas id="live_canvas"></canvas>
+      <video src="" id="countdown">
+
+      </video>
+      <canvas id="stream"></canvas>
       <div id="stream_legend">
 
       </div>
     </div>
-  </div> -->
+</div>
   <div id="banner">
     <h1>OPEN STUDIOS 2017</h1>
     <div id="howler">
 
-      <audio id="audio-player" src="dist/gemini.mp3" preload="auto" crossorigin="anonymous" controls autoplay></audio>
-      <!-- <audio id="audio-player" src="http://14123.live.streamtheworld.com/SAM10AAC091_SC" preload="auto" crossorigin="anonymous" controls autoplay></audio> -->
+      <audio id="audio-player" src="http://14123.live.streamtheworld.com/SAM10AAC091_SC" preload="auto" crossorigin="anonymous" controls autoplay></audio>
       <div id="howler_logo"></div>
       <div id='howler_text'>
         BROADCASTING<br />
@@ -50,5 +49,8 @@
     </div>
   </div>
 </body>
+<script>
+  const SOCKET_SERVER = "http://localhost:9999";
+</script>
 <script src="dist/bundle.js"></script>
 </html>

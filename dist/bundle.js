@@ -70,11 +70,13 @@
 "use strict";
 
 
-var _eventHandler = __webpack_require__(1);
+var _mapHandler = __webpack_require__(23);
 
-var ev = _interopRequireWildcard(_eventHandler);
+var map = _interopRequireWildcard(_mapHandler);
 
-__webpack_require__(3);
+var _interfaceHandler = __webpack_require__(24);
+
+var ui = _interopRequireWildcard(_interfaceHandler);
 
 var _radio = __webpack_require__(4);
 
@@ -93,228 +95,15 @@ __webpack_require__(9);
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 //---SCRIPTS
-ev.init();
+map.init();
 
 //---CSS
 
-radio.pulsate();
+radio.init();
+ui.init();
 
 /***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _data = __webpack_require__(2);
-
-var all_events = _interopRequireWildcard(_data);
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-var _exports = module.exports = {};
-
-var map, buttons;
-var holder, title, time, place, description;
-
-var zoomer;
-var canvas;
-
-var first_floor, ground_floor;
-var current_floor = 0;
-
-function isMobile() {
-  if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
-    return true;
-  } else {
-    return false;
-  }
-}
-
-function handleButton(event) {
-  var current_id = event.target.name.replace(' ', '_');
-  loadData(current_id);
-}
-
-var mobile_h = 800;
-var mobile_w = 950;
-
-_exports.init = function () {
-  canvas = document.getElementById('myCanvas');
-  // Create an empty project and a view for the canvas:
-  paper.setup(canvas);
-
-  $('#first_floor').on('click', this.switchMap);
-  $('#ground_floor').on('click', this.switchMap);
-
-  holder = document.getElementById('info');
-  title = document.getElementById('title');
-  time = document.getElementById('time');
-  place = document.getElementById('place');
-  description = document.getElementById('description');
-
-  paper.project.importSVG("dist/svg/ground_floor.svg", function (item, origin) {
-    ground_floor = item;
-    buttons = ground_floor.children.Layer_2.children.Buttons.children;
-
-    if (!isMobile()) {
-      paper.project.view.zoom = 0.75;
-      canvas.style.top = '-8%';
-      canvas.style.left = '-10%';
-      ground_floor.bounds.width = window.innerWidth * 0.8;
-      ground_floor.bounds.height = window.innerHeight;
-    } else {
-      ground_floor.bounds.width = mobile_w;
-      ground_floor.bounds.height = mobile_h;
-    }
-
-    for (var i = 0; i < buttons.length; i++) {
-      buttons[i].onMouseDown = handleButton;
-    }
-
-    ground_floor.visible = true;
-  });
-
-  paper.project.importSVG("dist/svg/first_floor.svg", function (item, origin) {
-    first_floor = item;
-    buttons = first_floor.children.Layer_2.children.Buttons.children;
-
-    if (!isMobile()) {
-      ground_floor.bounds.width = window.innerWidth * 0.8;
-      ground_floor.bounds.height = window.innerHeight;
-    } else {
-      canvas.style.top = '4%';
-      canvas.style.left = '2%';
-      canvas.style.width = '98%';
-      ground_floor.bounds.width = mobile_w;
-      ground_floor.bounds.height = mobile_h;
-    }
-
-    for (var i = 0; i < buttons.length; i++) {
-      buttons[i].onMouseDown = handleButton;
-    }
-
-    first_floor.visible = false;
-  });
-
-  // Set initial position.
-  canvas.style.position = 'absolute'; // 'absolute' also works.
-  canvas.addEventListener('touchstart', dragStart);
-  canvas.addEventListener('touchmove', dragMove);
-};
-
-_exports.switchMap = function () {
-  canvas.style.opacity = 0;
-  toggleFloorText();
-  setTimeout(toggleVisibility, 500);
-  setTimeout(function () {
-    canvas.style.opacity = 1;
-  }, 525);
-};
-
-function toggleFloorText() {
-  if (current_floor == 0) {
-    $('#ground_floor').css('opacity', 0.3);
-    $('#first_floor').css('opacity', 1);
-  } else {
-    $('#ground_floor').css('opacity', 1);
-    $('#first_floor').css('opacity', 0.3);
-  }
-}
-
-function loadData(current_id) {
-  for (var i = 0; i < all_events.data.length; i++) {
-
-    if (all_events.data[i]._id == current_id) populate(all_events.data[i]);
-  }
-}
-
-var targetStartX, targetStartY, touchStartX, touchStartY;
-function dragStart(e) {
-  targetStartX = parseInt(e.target.style.left);
-  targetStartY = parseInt(e.target.style.top);
-  touchStartX = e.touches[0].pageX;
-  touchStartY = e.touches[0].pageY;
-}
-
-function dragMove(e) {
-  // Calculate touch offsets
-  var touchOffsetX = e.touches[0].pageX - touchStartX,
-      touchOffsetY = e.touches[0].pageY - touchStartY;
-  // Add touch offsets to original target coordinates,
-  // then assign them to target element's styles.
-  e.target.style.left = targetStartX + touchOffsetX + 'px';
-  e.target.style.top = targetStartY + touchOffsetY + 'px';
-}
-
-function populate(info) {
-
-  if (holder.style.opacity != 1) {
-    holder.style.display = "block";
-    holder.style.opacity = 1;
-  }
-
-  var c = ('rgb(' + info.color.r + ',' + info.color.g + ',' + info.color.b + ');').toString();
-
-  // holder.setAttribute('style', 'color: '+c+'; border-color:'+c);
-  // holder.setAttribute('style', 'border-color: '+c);
-
-  hideContent();
-
-  setTimeout(function () {
-    holder.setAttribute('style', 'color: ' + c + '; border-color:' + c);
-    var hr = document.getElementsByTagName('hr');
-    for (var i = 0; i < hr.length; i++) {
-      hr[i].setAttribute('style', 'background-color: ' + c);
-      hr[i].style.opacity = 0;
-    }
-
-    title.innerHTML = info.title;
-    time.innerHTML = info.timing;
-    place.innerHTML = info.location;
-    description.innerHTML = info.description;
-  }, 500);
-
-  setTimeout(showContent, 500);
-}
-
-function showContent() {
-  var hr = document.getElementsByTagName('hr');
-  for (var i = 0; i < hr.length; i++) {
-    hr[i].style.opacity = 1;
-  }
-
-  title.style.opacity = 1;
-  time.style.opacity = 1;
-  place.style.opacity = 1;
-  description.style.opacity = 1;
-}
-
-function hideContent() {
-  var hr = document.getElementsByTagName('hr');
-  for (var i = 0; i < hr.length; i++) {
-    hr[i].style.opacity = 0;
-  }
-
-  title.style.opacity = 0;
-  time.style.opacity = 0;
-  place.style.opacity = 0;
-  description.style.opacity = 0;
-}
-
-function toggleVisibility() {
-  if (current_floor == 0) {
-    ground_floor.visible = false;
-    first_floor.visible = true;
-    current_floor = 1;
-  } else {
-    first_floor.visible = false;
-    ground_floor.visible = true;
-    current_floor = 0;
-  }
-}
-
-/***/ }),
+/* 1 */,
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1342,269 +1131,7 @@ _exports.data = [
 }];
 
 /***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-// var ViewZoom = function(){
-//
-//     var project = paper.project;
-//     var factor = 1.25;
-//
-//     var _minZoom;
-//     var _maxZoom;
-//     var mouseNativeStart =  paper.Point;
-//     var viewCenterStart = paper.Point;
-//
-//     this.project = project;
-//
-//     var view = this.project.view;
-//
-//     ($("#myCanvas")).mousewheel(function(event){
-//         var mousePosition = new paper.Point(event.offsetX, event.offsetY);
-//         this.changeZoomCentered(event.deltaY, mousePosition);
-//     });
-//
-//     view.on("mousedown", function(ev) {
-//         this.viewCenterStart = view.center;
-//         // Have to use native mouse offset, because ev.delta
-//         //  changes as the view is scrolled.
-//         this.mouseNativeStart = new paper.Point(ev.event.offsetX, ev.event.offsetY);
-//     });
-//
-//     view.on("mousedrag", function(ev) {
-//         if(this.viewCenterStart){
-//             var nativeDelta = new paper.Point(
-//                 ev.event.offsetX - this.mouseNativeStart.x,
-//                 ev.event.offsetY - this.mouseNativeStart.y
-//             );
-//             // Move into view coordinates to subract delta,
-//             //  then back into project coords.
-//             view.center = view.viewToProject(
-//                 view.projectToView(this.viewCenterStart)
-//                 .subtract(nativeDelta));
-//         }
-//     });
-//
-//     view.on("mouseup", function(ev) {
-//         if(this.mouseNativeStart){
-//             this.mouseNativeStart = null;
-//             this.viewCenterStart = null;
-//         }
-//     });
-//
-//     this.zoom = function(){
-//         return this.project.view.zoom;
-//     }
-//
-//     this.zoomRange = function(){
-//         return [this._minZoom, this._maxZoom];
-//     }
-//
-//     /**
-//      * Set zoom level.
-//      * @returns zoom level that was set, or null if it was not changed
-//      */
-//     this.setZoomConstrained = function(zoom){
-//         if(this._minZoom) {
-//             zoom = Math.max(zoom, this._minZoom);
-//         }
-//         if(this._maxZoom){
-//             zoom = Math.min(zoom, this._maxZoom);
-//         }
-//         var view = this.project.view;
-//         if(zoom != view.zoom){
-//             view.zoom = zoom;
-//             return zoom;
-//         }
-//         return null;
-//     }
-//
-//     this.setZoomRange = function(range){
-//         var view = this.project.view;
-//         var aSize = range.shift();
-//         var bSize = range.shift();
-//         var a = aSize && Math.min(
-//             view.bounds.height / aSize.height,
-//             view.bounds.width / aSize.width);
-//         var b = bSize && Math.min(
-//             view.bounds.height / bSize.height,
-//             view.bounds.width / bSize.width);
-//         var min = Math.min(a,b);
-//         if(min){
-//             this._minZoom = min;
-//         }
-//         var max = Math.max(a,b);
-//         if(max){
-//             this._maxZoom = max;
-//         }
-//         return [this._minZoom, this._maxZoom];
-//     }
-//
-//     this.changeZoomCentered = function(delta, mousePos) {
-//         if (!delta) {
-//             return;
-//         }
-//         var view = this.project.view;
-//         var oldZoom = view.zoom;
-//         var oldCenter = view.center;
-//         var viewPos = view.viewToProject(mousePos);
-//
-//         var newZoom = delta > 0
-//             ? view.zoom * this.factor
-//             : view.zoom / this.factor;
-//         newZoom = this.setZoomConstrained(newZoom);
-//
-//         if(!newZoom){
-//             return;
-//         }
-//
-//         var zoomScale = oldZoom / newZoom;
-//         var centerAdjust = viewPos.subtract(oldCenter);
-//         var offset = viewPos.subtract(centerAdjust.multiply(zoomScale))
-//             .subtract(oldCenter);
-//
-//         view.center = view.center.add(offset);
-//     };
-//
-//     this.zoomTo = function(rect){
-//         var view = this.project.view;
-//         view.center = rect.center;
-//         view.zoom = Math.min(
-//             view.viewSize.height / rect.height,
-//             view.viewSize.width / rect.width);
-//     }
-// }
-
-
-//----------------------------------------------------------
-//----------------------------------------------------------
-//----------------------------------------------------------
-//----------------------------------------------------------
-
-//
-// setSizeCanvas = function(){
-// 	var ctx = canvas.getContext('2d');
-// 	trackTransforms(ctx);
-// 	function redraw(){
-// 		// Clear the entire canvas
-// 		// var p1 = ctx.transformedPoint(0,0);
-// 		// var p2 = ctx.transformedPoint(canvas.width,canvas.height);
-// 		// ctx.clearRect(p1.x,p1.y,p2.x-p1.x,p2.y-p1.y);
-//
-// 		// Alternatively:
-// 		ctx.save();
-// 		ctx.setTransform(1,0,0,1,0,0);
-// 		ctx.clearRect(0,0,canvas.width,canvas.height);
-// 		ctx.restore();
-//
-//
-// 	}
-// 	redraw();
-//
-// 	var lastX=canvas.width/2, lastY=canvas.height/2;
-// 	var dragStart,dragged;
-// 	canvas.addEventListener('mousedown',function(evt){
-// 		document.body.style.mozUserSelect = document.body.style.webkitUserSelect = document.body.style.userSelect = 'none';
-// 		lastX = evt.offsetX || (evt.pageX - canvas.offsetLeft);
-// 		lastY = evt.offsetY || (evt.pageY - canvas.offsetTop);
-// 		dragStart = ctx.transformedPoint(lastX,lastY);
-// 		dragged = false;
-// 	},false);
-// 	canvas.addEventListener('mousemove',function(evt){
-// 		lastX = evt.offsetX || (evt.pageX - canvas.offsetLeft);
-// 		lastY = evt.offsetY || (evt.pageY - canvas.offsetTop);
-// 		dragged = true;
-// 		if (dragStart){
-// 			var pt = ctx.transformedPoint(lastX,lastY);
-// 			ctx.translate(pt.x-dragStart.x,pt.y-dragStart.y);
-// 			redraw();
-// 		}
-// 	},false);
-// 	canvas.addEventListener('mouseup',function(evt){
-// 		dragStart = null;
-// 		if (!dragged) zoom(evt.shiftKey ? -1 : 1 );
-// 	},false);
-//
-// 	var scaleFactor = 1.1;
-// 	var zoom = function(clicks){
-// 		var pt = ctx.transformedPoint(lastX,lastY);
-// 		ctx.translate(pt.x,pt.y);
-// 		var factor = Math.pow(scaleFactor,clicks);
-// 		ctx.scale(factor,factor);
-// 		ctx.translate(-pt.x,-pt.y);
-// 		redraw();
-// 	}
-//
-// var handleScroll = function(evt){
-// 		var delta = evt.wheelDelta ? evt.wheelDelta/40 : evt.detail ? -evt.detail : 0;
-// 		if (delta) zoom(delta);
-// 		return evt.preventDefault() && false;
-// 	};
-// 	canvas.addEventListener('DOMMouseScroll',handleScroll,false);
-// 	canvas.addEventListener('mousewheel',handleScroll,false);
-// };
-//
-// // Adds ctx.getTransform() - returns an SVGMatrix
-// // Adds ctx.transformedPoint(x,y) - returns an SVGPoint
-// function trackTransforms(ctx){
-// 	var svg = document.createElementNS("http://www.w3.org/2000/svg",'svg');
-// 	var xform = svg.createSVGMatrix();
-// 	ctx.getTransform = function(){ return xform; };
-//
-// 	var savedTransforms = [];
-// 	var save = ctx.save;
-// 	ctx.save = function(){
-// 		savedTransforms.push(xform.translate(0,0));
-// 		return save.call(ctx);
-// 	};
-// 	var restore = ctx.restore;
-// 	ctx.restore = function(){
-// 		xform = savedTransforms.pop();
-// 		return restore.call(ctx);
-// 	};
-//
-// 	var scale = ctx.scale;
-// 	ctx.scale = function(sx,sy){
-// 		xform = xform.scaleNonUniform(sx,sy);
-// 		return scale.call(ctx,sx,sy);
-// 	};
-// 	var rotate = ctx.rotate;
-// 	ctx.rotate = function(radians){
-// 		xform = xform.rotate(radians*180/Math.PI);
-// 		return rotate.call(ctx,radians);
-// 	};
-// 	var translate = ctx.translate;
-// 	ctx.translate = function(dx,dy){
-// 		xform = xform.translate(dx,dy);
-// 		return translate.call(ctx,dx,dy);
-// 	};
-// 	var transform = ctx.transform;
-// 	ctx.transform = function(a,b,c,d,e,f){
-// 		var m2 = svg.createSVGMatrix();
-// 		m2.a=a; m2.b=b; m2.c=c; m2.d=d; m2.e=e; m2.f=f;
-// 		xform = xform.multiply(m2);
-// 		return transform.call(ctx,a,b,c,d,e,f);
-// 	};
-// 	var setTransform = ctx.setTransform;
-// 	ctx.setTransform = function(a,b,c,d,e,f){
-// 		xform.a = a;
-// 		xform.b = b;
-// 		xform.c = c;
-// 		xform.d = d;
-// 		xform.e = e;
-// 		xform.f = f;
-// 		return setTransform.call(ctx,a,b,c,d,e,f);
-// 	};
-// 	var pt  = svg.createSVGPoint();
-// 	ctx.transformedPoint = function(x,y){
-// 		pt.x=x; pt.y=y;
-// 		return pt.matrixTransform(xform.inverse());
-// 	}
-// }
-
-
-/***/ }),
+/* 3 */,
 /* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1614,18 +1141,24 @@ _exports.data = [
 var _exports = module.exports = {};
 
 var beat;
-_exports.pulsate = function () {
-  beat = setInterval(pulse, 800);
-  document.getElementById("howler_logo").onclick = function () {
-    if (document.getElementById("audio-player").volume == 1) {
-      document.getElementById("audio-player").volume = 0;
-      clearInterval(beat);
-    } else {
-      document.getElementById("audio-player").volume = 1;
-      beat = setInterval(pulse, 800);
-    }
-  };
+_exports.init = function () {
+  document.getElementById("audio-player").volume = 0;
+
+  document.getElementById("howler_logo").onclick = toggleAudio;
+  document.getElementById("howler_logo").addEventListener('keypress', function (e) {
+    if (e.key === " ") toggleAudio();
+  });
 };
+
+function toggleAudio() {
+  if (document.getElementById("audio-player").volume == 1) {
+    document.getElementById("audio-player").volume = 0;
+    clearInterval(beat);
+  } else {
+    document.getElementById("audio-player").volume = 1;
+    beat = setInterval(pulse, 800);
+  }
+}
 
 function pulse() {
   if (document.getElementById("howler_logo").style.opacity == 0.2) document.getElementById("howler_logo").style.opacity = 1;else document.getElementById("howler_logo").style.opacity = 0.2;
@@ -1660,6 +1193,293 @@ function pulse() {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 10 */,
+/* 11 */,
+/* 12 */,
+/* 13 */,
+/* 14 */,
+/* 15 */,
+/* 16 */,
+/* 17 */,
+/* 18 */,
+/* 19 */,
+/* 20 */,
+/* 21 */,
+/* 22 */,
+/* 23 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _data = __webpack_require__(2);
+
+var all_events = _interopRequireWildcard(_data);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+var _exports = module.exports = {};
+
+var map, buttons;
+var holder, title, time, place, description;
+
+var zoomer;
+var canvas;
+
+var first_floor, ground_floor;
+var current_floor = 0;
+
+function isMobile() {
+  if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function handleButton(event) {
+  var current_id = event.target.name.replace(' ', '_');
+  loadData(current_id);
+}
+
+var mobile_h = 800;
+var mobile_w = 950;
+
+_exports.init = function () {
+  canvas = document.getElementById('myCanvas');
+  // Create an empty project and a view for the canvas:
+  paper.setup(canvas);
+
+  $('#first_floor').on('click', this.switchMap);
+  $('#ground_floor').on('click', this.switchMap);
+
+  holder = document.getElementById('info');
+  title = document.getElementById('title');
+  time = document.getElementById('time');
+  place = document.getElementById('place');
+  description = document.getElementById('description');
+
+  paper.project.importSVG("dist/svg/ground_floor.svg", function (item, origin) {
+    ground_floor = item;
+    buttons = ground_floor.children.Layer_2.children.Buttons.children;
+
+    if (!isMobile()) {
+      paper.project.view.zoom = 0.75;
+      canvas.style.top = '-8%';
+      canvas.style.left = '-10%';
+      ground_floor.bounds.width = window.innerWidth * 0.8;
+      ground_floor.bounds.height = window.innerHeight;
+    } else {
+      ground_floor.bounds.width = mobile_w;
+      ground_floor.bounds.height = mobile_h;
+    }
+
+    for (var i = 0; i < buttons.length; i++) {
+      buttons[i].onMouseDown = handleButton;
+    }
+
+    ground_floor.visible = true;
+  });
+
+  paper.project.importSVG("dist/svg/first_floor.svg", function (item, origin) {
+    first_floor = item;
+    buttons = first_floor.children.Layer_2.children.Buttons.children;
+
+    if (!isMobile()) {
+      ground_floor.bounds.width = window.innerWidth * 0.8;
+      ground_floor.bounds.height = window.innerHeight;
+    } else {
+      canvas.style.top = '4%';
+      canvas.style.left = '2%';
+      canvas.style.width = '98%';
+      ground_floor.bounds.width = mobile_w;
+      ground_floor.bounds.height = mobile_h;
+    }
+
+    for (var i = 0; i < buttons.length; i++) {
+      buttons[i].onMouseDown = handleButton;
+    }
+
+    first_floor.visible = false;
+  });
+
+  // Set initial position.
+  canvas.style.position = 'absolute'; // 'absolute' also works.
+  canvas.addEventListener('touchstart', dragStart);
+  canvas.addEventListener('touchmove', dragMove);
+};
+
+_exports.switchMap = function () {
+  canvas.style.opacity = 0;
+  toggleFloorText();
+  setTimeout(toggleVisibility, 500);
+  setTimeout(function () {
+    canvas.style.opacity = 1;
+  }, 525);
+};
+
+function toggleFloorText() {
+  if (current_floor == 0) {
+    $('#ground_floor').css('opacity', 0.3);
+    $('#first_floor').css('opacity', 1);
+  } else {
+    $('#ground_floor').css('opacity', 1);
+    $('#first_floor').css('opacity', 0.3);
+  }
+}
+
+function loadData(current_id) {
+  for (var i = 0; i < all_events.data.length; i++) {
+
+    if (all_events.data[i]._id == current_id) populate(all_events.data[i]);
+  }
+}
+
+var targetStartX, targetStartY, touchStartX, touchStartY;
+function dragStart(e) {
+  targetStartX = parseInt(e.target.style.left);
+  targetStartY = parseInt(e.target.style.top);
+  touchStartX = e.touches[0].pageX;
+  touchStartY = e.touches[0].pageY;
+}
+
+function dragMove(e) {
+  // Calculate touch offsets
+  var touchOffsetX = e.touches[0].pageX - touchStartX,
+      touchOffsetY = e.touches[0].pageY - touchStartY;
+  // Add touch offsets to original target coordinates,
+  // then assign them to target element's styles.
+  e.target.style.left = targetStartX + touchOffsetX + 'px';
+  e.target.style.top = targetStartY + touchOffsetY + 'px';
+}
+
+function populate(info) {
+
+  if (holder.style.opacity != 1) {
+    holder.style.display = "block";
+    holder.style.opacity = 1;
+  }
+
+  var c = ('rgb(' + info.color.r + ',' + info.color.g + ',' + info.color.b + ');').toString();
+
+  // holder.setAttribute('style', 'color: '+c+'; border-color:'+c);
+  // holder.setAttribute('style', 'border-color: '+c);
+
+  hideContent();
+
+  setTimeout(function () {
+    holder.setAttribute('style', 'color: ' + c + '; border-color:' + c);
+    var hr = document.getElementsByTagName('hr');
+    for (var i = 0; i < hr.length; i++) {
+      hr[i].setAttribute('style', 'background-color: ' + c);
+      hr[i].style.opacity = 0;
+    }
+
+    title.innerHTML = info.title;
+    time.innerHTML = info.timing;
+    place.innerHTML = info.location;
+    description.innerHTML = info.description;
+  }, 500);
+
+  setTimeout(showContent, 500);
+}
+
+function showContent() {
+  var hr = document.getElementsByTagName('hr');
+  for (var i = 0; i < hr.length; i++) {
+    hr[i].style.opacity = 1;
+  }
+
+  title.style.opacity = 1;
+  time.style.opacity = 1;
+  place.style.opacity = 1;
+  description.style.opacity = 1;
+}
+
+function hideContent() {
+  var hr = document.getElementsByTagName('hr');
+  for (var i = 0; i < hr.length; i++) {
+    hr[i].style.opacity = 0;
+  }
+
+  title.style.opacity = 0;
+  time.style.opacity = 0;
+  place.style.opacity = 0;
+  description.style.opacity = 0;
+}
+
+function toggleVisibility() {
+  if (current_floor == 0) {
+    ground_floor.visible = false;
+    first_floor.visible = true;
+    current_floor = 1;
+  } else {
+    first_floor.visible = false;
+    ground_floor.visible = true;
+    current_floor = 0;
+  }
+}
+
+/***/ }),
+/* 24 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var socket = io.connect(SOCKET_SERVER);
+
+var _exports = module.exports = {};
+
+var overlay, countdown, stream;
+
+_exports.init = function () {
+  overlay = document.getElementById('overlay');
+  countdown = document.getElementById('countdown');
+  stream = document.getElementById('stream');
+
+  countdown.addEventListener('onend', function () {
+    countdown.style.display = "none";
+  });
+};
+
+socket.on('connect', function () {
+  console.log('connected to socket server!');
+});
+
+socket.on('update-status', function (data) {
+  if (data.overlay) overlay.style.display = "block";
+
+  if (data.countdown) {
+    countdown.style.display = "block";
+    countdown.play();
+  }
+
+  if (data.stream) stream.style.display = "block";
+});
+
+socket.on('display-countdown', function () {
+  if (stream.style.display == "block") stream.style.display = "none";
+
+  overlay.style.display = "block";
+  countdown.play();
+});
+
+socket.on('display-stream', function () {
+  if (countdown.style.display == "block") countdown.style.display = "none";
+
+  stream.style.display = "block";
+});
+
+socket.on('hide-stream', function () {
+  stream.style.display = "none";
+});
+
+socket.on('new-frame', function (data) {
+  stream.src = data;
+});
 
 /***/ })
 /******/ ]);

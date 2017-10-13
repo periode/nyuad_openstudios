@@ -1,6 +1,6 @@
 //---SCRIPTS
-import * as ev from './js/event-handler.js'
-import './js/view-zoom-handler.js'
+import * as map from './js/map-handler.js'
+import * as ui from './js/interface-handler.js'
 import * as radio from './js/radio.js'
 
 //---CSS
@@ -10,5 +10,6 @@ import './scss/overlay.scss'
 import './scss/radio.scss'
 import './scss/mobile.scss'
 
-ev.init();
-radio.pulsate();
+map.init();
+radio.init();
+ui.init();
