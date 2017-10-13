@@ -23,12 +23,28 @@ html, body {
   background-color: teal;
   color: white;
   font-family: Gotham-Regular;
-  padding: 0; }
+  padding: 0;
+  -webkit-transition: background-color 0.5s ease-in-out;
+  -moz-transition: background-color 0.5s ease-in-out; }
 
-#banner h1 {
-  margin-left: 2%;
-  font-size: 80px;
-  padding-top: 5px; }
+#banner #header {
+  position: relative;
+  text-align: left;
+  font-size: 90px;
+  padding-top: 0px;
+  float: left; }
+
+#os-logo {
+  position: relative;
+  top: 5%;
+  left: 2%;
+  background-image: url(fc595348ca89f7cca0a1c5503cdee4ba.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 90%;
+  width: auto;
+  min-width: 150px;
+  float: left; }
 
 #container {
   position: absolute;
@@ -220,7 +236,7 @@ audio {
     width: 100%;
     padding: 0;
     margin: 0; }
-  #banner h1 {
+  #banner #header {
     margin: 10px;
     padding-top: 0px;
     font-size: 70px; }

@@ -4,10 +4,9 @@ import * as all_events from './2017/data.js'
 
 
 var map, buttons;
-var holder, title, time, place, description;
+var holder, title, time, place, description, banner, header;
 
-var zoomer;
-var canvas;
+var zoomer, canvas;
 
 var first_floor, ground_floor;
 var current_floor = 0;
@@ -26,10 +25,12 @@ function handleButton (event){
 }
 
 var mobile_h = 800;
-var mobile_w = 950;
+var mobile_w = 975;
 
 exports.init = function() {
   canvas = document.getElementById('myCanvas');
+	banner = document.getElementById('banner');
+	header = document.getElementById('header');
 	// Create an empty project and a view for the canvas:
 	paper.setup(canvas);
 
@@ -148,8 +149,10 @@ function populate(info){
 
   var c = ('rgb('+info.color.r+','+info.color.g+','+info.color.b+');').toString();
 
-  // holder.setAttribute('style', 'color: '+c+'; border-color:'+c);
-  // holder.setAttribute('style', 'border-color: '+c);
+  banner.setAttribute('style', 'background-color: '+c+';')
+	header.innerText = info.program;
+
+
 
   hideContent();
 
