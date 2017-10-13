@@ -1,6 +1,6 @@
 var exports = module.exports = {};
 
-import * as all_events from './data.js'
+import * as all_events from './2017/data.js'
 
 
 var map, buttons;
@@ -42,7 +42,7 @@ exports.init = function() {
   place = document.getElementById('place');
   description = document.getElementById('description');
 
-  paper.project.importSVG("dist/svg/ground_floor.svg", function(item, origin){
+  paper.project.importSVG("dist/svg/2017/ground_floor.svg", function(item, origin){
     ground_floor = item;
     buttons = ground_floor.children.Layer_2.children.Buttons.children;
 
@@ -66,7 +66,7 @@ exports.init = function() {
     ground_floor.visible = true;
   });
 
-  paper.project.importSVG("dist/svg/first_floor.svg", function(item, origin){
+  paper.project.importSVG("dist/svg/2017/first_floor.svg", function(item, origin){
     first_floor = item;
     buttons = first_floor.children.Layer_2.children.Buttons.children;
 
@@ -96,7 +96,7 @@ exports.init = function() {
 
 exports.switchMap = function (){
   canvas.style.opacity = 0;
-  toggleFloorText(); 
+  toggleFloorText();
   setTimeout(toggleVisibility, 500);
   setTimeout(function(){canvas.style.opacity = 1;}, 525);
 }
