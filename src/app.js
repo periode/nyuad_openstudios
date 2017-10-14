@@ -13,4 +13,4 @@ import './scss/mobile.scss'
 
 map.init();
 radio.init();
-// ui.init();
+ui.init();

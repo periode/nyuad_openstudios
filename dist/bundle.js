@@ -100,7 +100,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 map.init(); //---SCRIPTS
 
 radio.init();
-// ui.init();
+ui.init();
 
 /***/ }),
 /* 1 */
@@ -2400,21 +2400,26 @@ _exports.init = function () {
     countdown.style.display = "none";
   });
 
-  socket = io.connect("localhost:9999");
+  socket = io.connect("https://enframed.net:9999");
 
   socket.on('connect', function () {
     console.log('connected to socket server!');
   });
 
   socket.on('update-status', function (data) {
-    if (data.overlay) overlay.style.display = "block";
-
     if (data.countdown) {
+      overlay.style.display = "block";
       countdown.style.display = "block";
       countdown.play();
     }
 
-    if (data.stream) stream.style.display = "block";
+    if (data.stream) {
+      overlay.style.display = "block";
+      stream.style.display = "block";
+    } else {
+      overlay.style.display = "none";
+      stream.style.display = "none";
+    }
   });
 
   socket.on('display-countdown', function () {
@@ -2427,10 +2432,13 @@ _exports.init = function () {
   socket.on('display-stream', function () {
     if (countdown.style.display == "block") countdown.style.display = "none";
 
+    overlay.style.display = "block";
     stream.style.display = "block";
   });
 
   socket.on('hide-stream', function () {
+
+    overlay.style.display = "none";
     stream.style.display = "none";
   });
 
