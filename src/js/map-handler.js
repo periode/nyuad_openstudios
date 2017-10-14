@@ -80,14 +80,14 @@ exports.init = function() {
     buttons = first_floor.children.Layer_2.children.Buttons.children;
 
     if(!isMobile()){
-      ground_floor.bounds.width = window.innerWidth*0.8;
-      ground_floor.bounds.height = window.innerHeight;
+      first_floor.bounds.width = window.innerWidth*0.8;
+      first_floor.bounds.height = window.innerHeight;
     }else{
       canvas.style.top = '4%';
       canvas.style.left = '2%';
       canvas.style.width = '98%';
-      ground_floor.bounds.width = mobile_w;
-      ground_floor.bounds.height = mobile_h;
+      first_floor.bounds.width = mobile_w;
+      first_floor.bounds.height = mobile_h;
     }
 
     for(var i = 0; i < buttons.length; i++){

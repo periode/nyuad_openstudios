@@ -82,4 +82,22 @@
   #title div{
     font-size: 2em;
   }
+
+  .links-container{
+    position: relative;
+    margin-top: 20%;
+    width: 100%;
+  }
+
+  .links-container a, .links-container a.current{
+    font-size: 0.8em;
+    width: 60%;
+    margin-left: 15%;
+  }
+
+  .info-container{
+    position: relative;
+    font-size: 0.8em;
+    height: auto;
+  }
 }

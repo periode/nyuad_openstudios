@@ -184,12 +184,23 @@ hr {
   z-index: -1;
   background-size: contain; }
 
-.info-container .legend {
+.links-container {
+  position: absolute;
+  right: 2%;
+  bottom: 10%;
+  width: 40%; }
+
+.info-container {
   position: relative;
-  width: 100%;
+  width: 80%;
   bottom: 0px;
   right: 0px;
-  text-align: right; }
+  padding: 0px;
+  margin-bottom: 20px;
+  margin-left: 10%; }
+
+.legend {
+  text-align: center; }
 
 @media (max-width: 700px) {
   .info-container {
@@ -199,34 +210,32 @@ hr {
   .info-container {
     top: -40px; } }
 
-.text-container {
-  margin: 30px auto;
-  width: 80%; }
-
-.info-container a {
+.links-container a {
   display: block;
   text-decoration: none;
   color: #ff615f;
   text-align: center;
   width: 200px;
-  font-size: 1.2em;
+  font-size: 1em;
   margin: 10px auto;
   border: 2px solid;
   border-radius: 22px;
   padding: 10px 20px; }
 
-.info-container a:hover {
+.links-container a:hover {
   color: white;
   background-color: #ff615f; }
 
-.info-container a.current {
+.links-container a.current {
   font-weight: bold;
   color: #ff252d;
-  width: 240px; }
+  width: 240px;
+  font-size: 1.2em; }
 
-.info-container a.current:hover {
+.links-container a.current:hover {
   color: white;
-  background-color: #ff252d; }
+  background-color: #ff252d;
+  font-size: 1.2em; }
 #overlay {
   position: absolute;
   width: 100%;
@@ -331,4 +340,16 @@ audio {
   #description ul {
     font-size: 0.8em; }
   #title div {
-    font-size: 2em; } }
+    font-size: 2em; }
+  .links-container {
+    position: relative;
+    margin-top: 20%;
+    width: 100%; }
+  .links-container a, .links-container a.current {
+    font-size: 0.8em;
+    width: 60%;
+    margin-left: 15%; }
+  .info-container {
+    position: relative;
+    font-size: 0.8em;
+    height: auto; } }
