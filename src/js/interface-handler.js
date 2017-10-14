@@ -7,11 +7,18 @@ exports.init = function(){
   countdown = document.getElementById('countdown');
   stream = document.getElementById('stream');
 
+  //TODO check if the 'onend' event actually exists 
   countdown.addEventListener('onend', function(){
     countdown.style.display = "none";
+    stream.style.display = "block";
   });
 
-  socket = io.connect("https://enframed.net:9999");
+  if(SOCKET_SERVER != undefined)
+    initSocket();
+};
+
+function initSocket(){
+  socket = io.connect(SOCKET_SERVER);
 
   socket.on('connect', function(){
     console.log('connected to socket server!');
@@ -58,5 +65,4 @@ exports.init = function(){
   socket.on('new-frame', function(data){
     stream.src = data;
   });
-
-};
+}

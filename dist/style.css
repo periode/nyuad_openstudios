@@ -228,7 +228,7 @@ hr {
 .links-container a {
   display: block;
   text-decoration: none;
-  color: #ff615f;
+  color: #ff757d;
   text-align: center;
   width: 200px;
   font-size: 1em;
@@ -239,7 +239,7 @@ hr {
 
 .links-container a:hover {
   color: white;
-  background-color: #ff615f; }
+  background-color: #ff757d; }
 
 .links-container a.current {
   font-weight: bold;
