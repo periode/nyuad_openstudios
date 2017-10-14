@@ -15,6 +15,7 @@ body {
 html, body {
   margin: 0;
   height: 100%;
+  width: 100%;
   font-family: Gotham-Regular; }
 
 #banner {
@@ -185,20 +186,23 @@ hr {
   height: 600px; }
 .top-image {
   width: 100%;
+  height: auto;
   z-index: -1;
   background-size: contain; }
 
+.splash-container {
+  position: relative;
+  bottom: 20%;
+  width: 100%; }
+
 .links-container {
-  position: absolute;
-  right: 2%;
-  bottom: 10%;
+  position: relative;
+  float: right;
+  margin-left: 60%;
   width: 40%; }
 
 .info-container {
-  position: relative;
   width: 80%;
-  bottom: 0px;
-  right: 0px;
   padding: 0px;
   margin-bottom: 20px;
   margin-left: 10%; }
@@ -208,7 +212,13 @@ hr {
 
 @media (max-width: 700px) {
   .info-container {
-    top: 0px; } }
+    top: 0px; }
+  .splash-container {
+    bottom: 10%;
+    width: 100%; }
+  .links-container a {
+    font-size: 0.8em;
+    width: 180px; } }
 
 @media (min-width: 1400px) {
   .info-container {

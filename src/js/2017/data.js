@@ -303,7 +303,7 @@ exports.data = [
 			g: 137,
 			b: 240
 		},
-		title: "Studio recording / tracking / mixing demo",
+		title: "Recording a Live Band at NYUAD Music Studios",
 		location: "Rm. 141, 142, 143",
 		timing: "6 - 8pm",
 		description: "Band performing & recording throughout the event in the live room.",
@@ -312,7 +312,7 @@ exports.data = [
 		floor: "first"
 	},
 	{
-		_id: "blue02",
+		_id: "purple02",
 		category: "Performances & Exhibitions",
 		number: "02",
 		color: {
