@@ -14,7 +14,6 @@ body {
 
 html, body {
   margin: 0;
-  overflow: hidden;
   height: 100%;
   font-family: Gotham-Regular; }
 
@@ -50,7 +49,8 @@ html, body {
   position: absolute;
   top: 100px;
   width: 100%;
-  height: 100%; }
+  height: 100%;
+  overflow: hidden; }
 
 canvas {
   z-index: 1;
@@ -179,6 +179,54 @@ hr {
   -o-transition: background-color .15s linear;
   -ms-transition: background-color .15s linear;
   transition: background-color .15s linear; }
+.top-image {
+  width: 100%;
+  z-index: -1;
+  background-size: contain; }
+
+.info-container .legend {
+  position: relative;
+  width: 100%;
+  bottom: 0px;
+  right: 0px;
+  text-align: right; }
+
+@media (max-width: 700px) {
+  .info-container {
+    top: 0px; } }
+
+@media (min-width: 1400px) {
+  .info-container {
+    top: -40px; } }
+
+.text-container {
+  margin: 30px auto;
+  width: 80%; }
+
+.info-container a {
+  display: block;
+  text-decoration: none;
+  color: #ff615f;
+  text-align: center;
+  width: 200px;
+  font-size: 1.2em;
+  margin: 10px auto;
+  border: 2px solid;
+  border-radius: 22px;
+  padding: 10px 20px; }
+
+.info-container a:hover {
+  color: white;
+  background-color: #ff615f; }
+
+.info-container a.current {
+  font-weight: bold;
+  color: #ff252d;
+  width: 240px; }
+
+.info-container a.current:hover {
+  color: white;
+  background-color: #ff252d; }
 #overlay {
   position: absolute;
   width: 100%;

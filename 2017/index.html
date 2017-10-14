@@ -1,0 +1,59 @@
+<!-- <!DOCTYPE HTML> -->
+<html>
+<head>
+  <!-- <meta content='width=device-width, initial-scale=.1, maximum-scale=.1, user-scalable=0' name='viewport' /> -->
+  <title>NYUAD Open Studios 2017</title>
+  <script src="../dist/lib/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+  <script src="../dist/lib/paper-full.min.js"></script>
+  <script src="../dist/lib/socket.io.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../dist/style.css"></link>
+</head>
+<body>
+ <div id="overlay">
+    <div id="surface">
+      <video src="" id="countdown">
+
+      </video>
+      <canvas id="stream"></canvas>
+      <div id="stream_legend">
+
+      </div>
+    </div>
+</div>
+  <div id="banner">
+    <div id="os-logo"></div>
+    <div id="header">2017</div>
+    <div id="howler">
+
+      <audio id="audio-player" src="http://14123.live.streamtheworld.com/SAM10AAC091_SC" preload="auto" crossorigin="anonymous" controls autoplay></audio>
+      <div id="howler_logo"></div>
+      <div id='howler_text'>
+        BROADCASTING<br />
+        HOWLER RADIO
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <canvas id="myCanvas"></canvas>
+    <div class="floors">
+      <div id="first_floor">FIRST</div>
+      <div id="ground_floor">GROUND</div>
+    </div>
+    <div id="info">
+        <div id="title">Arts Center Open Studios Map</div>
+        <hr>
+        <div id="time_and_place">
+          <div id="place"></div>
+          <div id="time"></div>
+        </div>
+        <hr>
+        <div id="description">Tap an icon to display information!</div>
+    </div>
+  </div>
+</body>
+<script>
+  var SOCKET_SERVER = "http://localhost:9999";
+  var YEAR = 2017;
+</script>
+<script src="../dist/bundle.js"></script>
+</html>

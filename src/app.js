@@ -6,6 +6,7 @@ import * as radio from './js/radio.js'
 //---CSS
 import './scss/typography.scss'
 import './scss/base.scss'
+import './scss/splash.scss'
 import './scss/overlay.scss'
 import './scss/radio.scss'
 import './scss/mobile.scss'

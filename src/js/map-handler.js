@@ -1,6 +1,14 @@
 var exports = module.exports = {};
 
-import * as all_events from './2017/data.js'
+import * as all_events_2017 from './2017/data.js'
+import * as all_events_2016 from './2016/data.js'
+
+var all_events;
+
+if(YEAR == 2017)
+	all_events = all_events_2017;
+else
+	all_events = all_events_2016;
 
 
 var map, buttons;
@@ -43,7 +51,7 @@ exports.init = function() {
   place = document.getElementById('place');
   description = document.getElementById('description');
 
-  paper.project.importSVG("dist/svg/2017/ground_floor.svg", function(item, origin){
+  paper.project.importSVG("../dist/svg/2017/ground_floor.svg", function(item, origin){
     ground_floor = item;
     buttons = ground_floor.children.Layer_2.children.Buttons.children;
 
@@ -67,7 +75,7 @@ exports.init = function() {
     ground_floor.visible = true;
   });
 
-  paper.project.importSVG("dist/svg/2017/first_floor.svg", function(item, origin){
+  paper.project.importSVG("../dist/svg/2017/first_floor.svg", function(item, origin){
     first_floor = item;
     buttons = first_floor.children.Layer_2.children.Buttons.children;
 
