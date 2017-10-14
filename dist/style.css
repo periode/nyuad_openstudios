@@ -24,6 +24,7 @@ html, body {
   color: white;
   font-family: Gotham-Regular;
   padding: 0;
+  z-index: 5;
   -webkit-transition: background-color 0.5s ease-in-out;
   -moz-transition: background-color 0.5s ease-in-out; }
 

@@ -142,7 +142,8 @@ function isMobile() {
 }
 
 function handleButton(event) {
-  var current_id = event.target.name.replace(' ', '_');
+  var current_id = event.target.name.replace('_x3', '');
+  current_id = current_id.replace('_', '');
   loadData(current_id);
 }
 
@@ -167,7 +168,7 @@ _exports.init = function () {
 
   paper.project.importSVG("../dist/svg/2017/ground_floor.svg", function (item, origin) {
     ground_floor = item;
-    buttons = ground_floor.children.Layer_2.children.Buttons.children;
+    buttons = ground_floor.children.Buttons.children;
 
     if (!isMobile()) {
       paper.project.view.zoom = 0.75;
@@ -236,8 +237,10 @@ function toggleFloorText() {
 
 function loadData(current_id) {
   for (var i = 0; i < all_events.data.length; i++) {
-
-    if (all_events.data[i]._id == current_id) populate(all_events.data[i]);
+    if (all_events.data[i].number == current_id) {
+      populate(all_events.data[i]);
+      return;
+    }
   }
 }
 
