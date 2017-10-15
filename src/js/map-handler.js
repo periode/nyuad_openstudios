@@ -5,14 +5,10 @@ import * as all_events_2016 from './2016/data.js'
 
 var all_events;
 
-if(YEAR == 2017)
-	all_events = all_events_2017;
-else
-	all_events = all_events_2016;
-
 
 var map, buttons;
 var holder, title, time, place, description, banner, header;
+var current_id;
 
 var zoomer, canvas;
 
@@ -27,87 +23,89 @@ function isMobile(){
 	}
 }
 
-function handleButton (event){
-	var current_id = event.target.name.replace('_x3', '');
-	current_id = current_id.replace('_', '');
-	if(current_id.length > 2)
-		current_id = current_id.substring(0, 2);
-
-  loadData(current_id);
-}
-
 var mobile_h = 800;
 var mobile_w = 975;
 
-exports.init = function() {
-  canvas = document.getElementById('myCanvas');
-	banner = document.getElementById('banner');
-	header = document.getElementById('header');
-	// Create an empty project and a view for the canvas:
-	paper.setup(canvas);
-
-  $('#first_floor').on('click', this.switchMap);
-  $('#ground_floor').on('click', this.switchMap);
-
-  holder = document.getElementById('info');
-  title = document.getElementById('title');
-  time = document.getElementById('time');
-  place = document.getElementById('place');
-  description = document.getElementById('description');
-
-  paper.project.importSVG("../dist/svg/2017/ground_floor.svg", function(item, origin){
-    ground_floor = item;
-    buttons = ground_floor.children.Buttons.children;
-
-    if(!isMobile()){
-      paper.project.view.zoom = 0.75;
-      canvas.style.top = '-8%';
-      canvas.style.left = '-10%';
-      ground_floor.bounds.width = window.innerWidth*0.8;
-      ground_floor.bounds.height = window.innerHeight;
-    }else{
-      ground_floor.bounds.width = mobile_w;
-      ground_floor.bounds.height = mobile_h;
-    }
-
-
-
-    for(var i = 0; i < buttons.length; i++){
-      buttons[i].onMouseDown =  handleButton;
-    }
-
-    ground_floor.visible = true;
-  });
-
-  paper.project.importSVG("../dist/svg/2017/first_floor.svg", function(item, origin){
-    first_floor = item;
-    buttons = first_floor.children.Layer_2.children.Buttons.children;
-
-    if(!isMobile()){
-      first_floor.bounds.width = window.innerWidth*0.8;
-      first_floor.bounds.height = window.innerHeight;
-    }else{
-      canvas.style.top = '4%';
-      canvas.style.left = '2%';
-      canvas.style.width = '98%';
-      first_floor.bounds.width = mobile_w;
-      first_floor.bounds.height = mobile_h;
-    }
-
-    for(var i = 0; i < buttons.length; i++){
-      buttons[i].onMouseDown =  handleButton;
-    }
-
-    first_floor.visible = false;
-  });
-
-  // Set initial position.
-  canvas.style.position = 'absolute'; // 'absolute' also works.
-  canvas.addEventListener('touchstart', dragStart);
-  canvas.addEventListener('touchmove',  dragMove);
+exports.init = function(){
+	if(YEAR != undefined)
+		initMap();
 }
 
-exports.switchMap = function (){
+function initMap(){
+	//load data
+	if(YEAR == 2017)
+		all_events = all_events_2017;
+	else
+		all_events = all_events_2016;
+
+	  canvas = document.getElementById('myCanvas');
+		banner = document.getElementById('banner');
+		header = document.getElementById('header');
+		// Create an empty project and a view for the canvas:
+		paper.setup(canvas);
+
+	  $('#first_floor').on('click', switchMap);
+	  $('#ground_floor').on('click', switchMap);
+
+	  holder = document.getElementById('info');
+	  title = document.getElementById('title');
+	  time = document.getElementById('time');
+	  place = document.getElementById('place');
+	  description = document.getElementById('description');
+
+	  paper.project.importSVG("../dist/svg/2017/ground_floor.svg", function(item, origin){
+	    ground_floor = item;
+	    buttons = ground_floor.children.Buttons.children;
+
+	    if(!isMobile()){
+	      paper.project.view.zoom = 0.75;
+	      canvas.style.top = '-8%';
+	      canvas.style.left = '-10%';
+	      ground_floor.bounds.width = window.innerWidth*0.8;
+	      ground_floor.bounds.height = window.innerHeight;
+	    }else{
+	      ground_floor.bounds.width = mobile_w;
+	      ground_floor.bounds.height = mobile_h;
+	    }
+
+
+
+	    for(var i = 0; i < buttons.length; i++){
+	      buttons[i].onMouseDown =  handleButton;
+	    }
+
+	    ground_floor.visible = true;
+	  });
+
+	  paper.project.importSVG("../dist/svg/2017/first_floor.svg", function(item, origin){
+	    first_floor = item;
+	    buttons = first_floor.children.Layer_2.children.Buttons.children;
+
+	    if(!isMobile()){
+	      first_floor.bounds.width = window.innerWidth*0.8;
+	      first_floor.bounds.height = window.innerHeight;
+	    }else{
+	      canvas.style.top = '4%';
+	      canvas.style.left = '2%';
+	      canvas.style.width = '98%';
+	      first_floor.bounds.width = mobile_w;
+	      first_floor.bounds.height = mobile_h;
+	    }
+
+	    for(var i = 0; i < buttons.length; i++){
+	      buttons[i].onMouseDown =  handleButton;
+	    }
+
+	    first_floor.visible = false;
+	  });
+
+	  // Set initial position.
+	  canvas.style.position = 'absolute'; // 'absolute' also works.
+	  canvas.addEventListener('touchstart', dragStart);
+	  canvas.addEventListener('touchmove',  dragMove);
+}
+
+function switchMap(){
   canvas.style.opacity = 0;
   toggleFloorText();
   setTimeout(toggleVisibility, 500);
@@ -124,33 +122,27 @@ function toggleFloorText(){
   }
 }
 
-function loadData(current_id){
+function handleButton (event){
+	var clicked_id = event.target.name.replace('_x3', '');
+	clicked_id = clicked_id.replace('_', '');
+	if(clicked_id.length > 2)
+		clicked_id = clicked_id.substring(0, 2);
+
+	if(clicked_id == current_id)
+		return;
+
+  loadData(clicked_id);
+}
+
+function loadData(clicked_id){
   for(var i = 0; i < all_events.data.length; i++){
-    if(all_events.data[i].number == current_id){
+    if(all_events.data[i].number == clicked_id){
+			current_id = clicked_id;
 			populate(all_events.data[i]);
 			return;
 		}
   }
 
-}
-
-
-var targetStartX, targetStartY, touchStartX, touchStartY;
-function dragStart(e) {
-  targetStartX = parseInt(e.target.style.left);
-  targetStartY = parseInt(e.target.style.top);
-  touchStartX  = e.touches[0].pageX;
-  touchStartY  = e.touches[0].pageY;
-}
-
-function dragMove(e) {
-  // Calculate touch offsets
-  var touchOffsetX = e.touches[0].pageX - touchStartX,
-      touchOffsetY = e.touches[0].pageY - touchStartY;
-  // Add touch offsets to original target coordinates,
-  // then assign them to target element's styles.
-  e.target.style.left = targetStartX + touchOffsetX + 'px';
-  e.target.style.top  = targetStartY + touchOffsetY + 'px';
 }
 
 function populate(info){
@@ -164,8 +156,6 @@ function populate(info){
 
   banner.setAttribute('style', 'background-color: '+c+';')
 	header.innerText = info.program;
-
-
 
   hideContent();
 
@@ -220,4 +210,22 @@ function toggleVisibility(){
     ground_floor.visible = true;
     current_floor = 0;
   }
+}
+
+var targetStartX, targetStartY, touchStartX, touchStartY;
+function dragStart(e) {
+  targetStartX = parseInt(e.target.style.left);
+  targetStartY = parseInt(e.target.style.top);
+  touchStartX  = e.touches[0].pageX;
+  touchStartY  = e.touches[0].pageY;
+}
+
+function dragMove(e) {
+  // Calculate touch offsets
+  var touchOffsetX = e.touches[0].pageX - touchStartX,
+      touchOffsetY = e.touches[0].pageY - touchStartY;
+  // Add touch offsets to original target coordinates,
+  // then assign them to target element's styles.
+  e.target.style.left = targetStartX + touchOffsetX + 'px';
+  e.target.style.top  = targetStartY + touchOffsetY + 'px';
 }

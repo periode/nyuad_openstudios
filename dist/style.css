@@ -35,6 +35,9 @@ html, body {
   padding-top: 0px;
   float: left; }
 
+#header {
+  width: 80%; }
+
 #os-logo {
   position: relative;
   top: 5%;
@@ -255,16 +258,16 @@ hr {
   position: absolute;
   width: 100%;
   height: 100%;
-  z-index: 4;
+  z-index: -1;
   display: block;
   background-color: rgba(0, 0, 0, 0.8); }
 
 #surface {
   position: relative;
-  top: 10%;
-  left: 10%;
-  width: 80%;
-  height: 80%;
+  top: 100px;
+  left: 0%;
+  width: 100%;
+  height: 87%;
   background-color: none; }
 
 #countdown {
@@ -273,10 +276,12 @@ hr {
   display: none; }
 
 #stream {
-  width: auto;
+  width: 100%;
   height: 100%;
-  display: block;
-  margin: auto; }
+  display: block; }
+
+.offset {
+  margin-left: 10%; }
 #howler {
   position: absolute;
   height: 100%;

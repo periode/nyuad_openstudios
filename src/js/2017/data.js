@@ -21,6 +21,24 @@ exports.data = [
 		floor: "ground"
 	},
 	{
+		_id: "green54",
+		category: "Exhibitions & Showcases",
+		number: "54",
+		color: {
+			name: "green",
+			r: 133,
+			g: 173,
+			b: 58
+		},
+		title: "Capturing Science",
+		location: "Rm. 157",
+		timing: "6 - 8pm",
+		description: "A group of NYUAD students under the guidance of award-winning science photographer Enrico Sacchetti learned how to look at science and technology with the eye of an abstract artist. The pictures in this series are a result of a three-day workshop in which the group was lead through our campus laboratories to produce photographs worthy of the cover of the most prestigious science journals.",
+		program: "VisArts",
+		tags: ["visarts"],
+		floor: "first"
+	},
+	{
 		_id: "green16",
 		category: "Installations",
 		number: "16",
