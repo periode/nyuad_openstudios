@@ -144,6 +144,8 @@ function isMobile() {
 function handleButton(event) {
   var current_id = event.target.name.replace('_x3', '');
   current_id = current_id.replace('_', '');
+  if (current_id.length > 2) current_id = current_id.substring(0, 2);
+
   loadData(current_id);
 }
 
@@ -2416,16 +2418,16 @@ _exports.init = function () {
   countdown = document.getElementById('countdown');
   stream = document.getElementById('stream');
 
-  //TODO check if the 'onend' event actually exists 
-  countdown.addEventListener('onend', function () {
-    countdown.style.display = "none";
-    stream.style.display = "block";
-  });
-
   if (SOCKET_SERVER != undefined) initSocket();
 };
 
 function initSocket() {
+  //TODO check if the 'onend' event actually exists 
+  // countdown.addEventListener('onend', function(){
+  //   countdown.style.display = "none";
+  //   stream.style.display = "block";
+  // });
+
   socket = io.connect(SOCKET_SERVER);
 
   socket.on('connect', function () {
