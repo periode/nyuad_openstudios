@@ -981,53 +981,53 @@ exports.data = [
 	},
 	//***** FOOD BUTTONS *****
 	{
-		_id: "chicken",
+		_id: "crepe",
 		category: "Food",
-		number: "",
+		number: "crepe",
 		color: {
-			name: "orange",
-			r: 246,
-			g: 131,
-			b: 50
+			name: "grey",
+			r: 107,
+			g: 98,
+			b: 110
 		},
-		title: "Chicken!",
-		location: "",
+		title: "Crêpes!",
+		location: "Rm. 013",
 		timing: "6 - 9pm",
 		description: "Yummy!",
-		program: "Arts",
+		program: "Catering",
 		tags: ["food"],
-		floor: ""
+		floor: "first"
 	},
 	{
-		_id: "samosa",
+		_id: "drinks",
 		category: "Food",
-		number: "",
+		number: "drinks",
 		color: {
-			name: "orange",
-			r: 246,
-			g: 131,
-			b: 50
+			name: "grey",
+			r: 107,
+			g: 98,
+			b: 110
 		},
-		title: "Samosas!",
-		location: "",
+		title: "Drinks!",
+		location: "Rm. 006, 045, 161",
 		timing: "6 - 9pm",
-		description: "Yummy!",
-		program: "Arts",
+		description: "To quench all kinds of thirsts!",
+		program: "Catering",
 		tags: ["food"],
 		floor: ""
 	},
 	{
 		_id: "popcorn",
 		category: "Food",
-		number: "",
+		number: "popcorn",
 		color: {
-			name: "orange",
-			r: 246,
-			g: 131,
-			b: 50
+			name: "grey",
+			r: 107,
+			g: 98,
+			b: 110
 		},
 		title: "Popcorn!",
-		location: "",
+		location: "Rm. 025",
 		timing: "6 - 9pm",
 		description: "Yummy!",
 		program: "Arts",
@@ -1037,66 +1037,48 @@ exports.data = [
 	{
 		_id: "sweets",
 		category: "Food",
-		number: "",
+		number: "sweets",
 		color: {
-			name: "orange",
-			r: 246,
-			g: 131,
-			b: 50
+			name: "grey",
+			r: 107,
+			g: 98,
+			b: 110
 		},
 		title: "Sweets!",
-		location: "",
+		location: "throughout the Arts Center",
 		timing: "6 - 9pm",
 		description: "Yummy!",
-		program: "Arts",
+		program: "Catering",
 		tags: ["food"],
 		floor: ""
 	},
 	{
 		_id: "sushi",
 		category: "Food",
-		number: "",
+		number: "sushi",
 		color: {
-			name: "orange",
-			r: 246,
-			g: 131,
-			b: 50
+			name: "grey",
+			r: 107,
+			g: 98,
+			b: 110
 		},
 		title: "Sushi!",
-		location: "",
+		location: "Rm. 143",
 		timing: "6 - 9pm",
 		description: "Yummy!",
-		program: "Arts",
+		program: "Catering",
 		tags: ["food"],
-		floor: ""
-	},
-	{
-		_id: "drinks",
-		category: "Food",
-		number: "",
-		color: {
-			name: "orange",
-			r: 246,
-			g: 131,
-			b: 50
-		},
-		title: "Drinks!",
-		location: "",
-		timing: "6 - 9pm",
-		description: "Who's thirsty?",
-		program: "Arts",
-		tags: ["food"],
-		floor: ""
+		floor: "first"
 	},
 	{
 		_id: "veg",
 		category: "Food",
 		number: "",
 		color: {
-			name: "orange",
-			r: 246,
-			g: 131,
-			b: 50
+			name: "grey",
+			r: 107,
+			g: 98,
+			b: 110
 		},
 		title: "Veg!",
 		location: "",
@@ -1105,5 +1087,113 @@ exports.data = [
 		program: "Arts",
 		tags: ["food"],
 		floor: ""
+	},
+	{
+		_id: "Veg",
+		category: "Food",
+		number: "Veg",
+		color: {
+			name: "grey",
+			r: 107,
+			g: 98,
+			b: 110
+		},
+		title: "Veggie Heaven!",
+		location: "Rm. 176",
+		timing: "6 - 9pm",
+		description: "Yummy!",
+		program: "Catering",
+		tags: ["food"],
+		floor: "first"
+	},
+	{
+		_id: "coffee",
+		category: "Food",
+		number: "coffee",
+		color: {
+			name: "grey",
+			r: 107,
+			g: 98,
+			b: 110
+		},
+		title: "Coffee SIG!",
+		location: "Rm. 153",
+		timing: "6 - 9pm",
+		description: "Yummy!",
+		program: "Catering",
+		tags: ["food"],
+		floor: "first"
+	},
+	{
+		_id: "mezze",
+		category: "Food",
+		number: "mezze",
+		color: {
+			name: "grey",
+			r: 107,
+			g: 98,
+			b: 110
+		},
+		title: "Mezze!",
+		location: "East Elevator lobby",
+		timing: "6 - 9pm",
+		description: "Yummy!",
+		program: "Catering",
+		tags: ["food"],
+		floor: "first"
+	},
+	{
+		_id: "asian",
+		category: "Food",
+		number: "asian",
+		color: {
+			name: "grey",
+			r: 107,
+			g: 98,
+			b: 110
+		},
+		title: "Asian!",
+		location: "Nomad Pad",
+		timing: "6 - 9pm",
+		description: "Yummy!",
+		program: "Catering",
+		tags: ["food"],
+		floor: "first"
+	},
+	{
+		_id: "mexican",
+		category: "Food",
+		number: "mexican",
+		color: {
+			name: "grey",
+			r: 107,
+			g: 98,
+			b: 110
+		},
+		title: "Mexican!",
+		location: "West Elevator lobby",
+		timing: "6 - 9pm",
+		description: "Yummy!",
+		program: "Catering",
+		tags: ["food"],
+		floor: "first"
+	},
+	{
+		_id: "schwarma",
+		category: "Food",
+		number: "schwarma",
+		color: {
+			name: "grey",
+			r: 107,
+			g: 98,
+			b: 110
+		},
+		title: "Falafel & Schwarma!",
+		location: "Rm. 045",
+		timing: "6 - 9pm",
+		description: "Yummy!",
+		program: "Catering",
+		tags: ["food"],
+		floor: "ground"
 	}
 ];

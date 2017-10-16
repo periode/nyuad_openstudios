@@ -122,11 +122,14 @@ function toggleFloorText(){
   }
 }
 
+//TODO clean this up :(
 function handleButton (event){
 	var clicked_id = event.target.name.replace('_x3', '');
 	clicked_id = clicked_id.replace('_', '');
-	if(clicked_id.length > 2)
-		clicked_id = clicked_id.substring(0, 2);
+	if(clicked_id.length > 2 && clicked_id.indexOf('_') > -1)
+		clicked_id = clicked_id.substring(0, clicked_id.length-2);
+
+	clicked_id = clicked_id.replace('_', '');
 
 	if(clicked_id == current_id)
 		return;
