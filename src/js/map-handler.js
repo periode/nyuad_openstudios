@@ -79,7 +79,7 @@ function initMap(){
 
 	  paper.project.importSVG("../dist/svg/2017/first_floor.svg", function(item, origin){
 	    first_floor = item;
-	    buttons = first_floor.children.Layer_2.children.Buttons.children;
+	    buttons = first_floor.children.Buttons.children;
 
 	    if(!isMobile()){
 	      first_floor.bounds.width = window.innerWidth*0.8;
