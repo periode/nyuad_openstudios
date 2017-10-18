@@ -372,14 +372,14 @@ _exports.data = [
 	tags: ["film"],
 	floor: "ground"
 }, {
-	_id: "green54",
+	_id: "red54",
 	category: "Exhibitions & Showcases",
 	number: "54",
 	color: {
-		name: "green",
-		r: 133,
-		g: 173,
-		b: 58
+		name: "red",
+		r: 238,
+		g: 43,
+		b: 52
 	},
 	title: "Capturing Science",
 	location: "Rm. 157",
@@ -494,14 +494,14 @@ _exports.data = [
 
 //***** YELLOW BUTTONS - INTERACTIVE MEDIA *****
 {
-	_id: "yellow42",
+	_id: "pink42",
 	category: "Exhibitions & Showcases",
 	number: "42",
 	color: {
-		name: "yellow",
-		r: 253,
-		g: 221,
-		b: 56
+		name: "pink",
+		r: 251,
+		g: 75,
+		b: 152
 	},
 	title: "Alternate Realities",
 	location: "Rm. 153 - Interactive Media Classroom",
@@ -511,14 +511,14 @@ _exports.data = [
 	tags: ["interactive media"],
 	floor: "first"
 }, {
-	_id: "yellow17",
+	_id: "pink17",
 	category: "Installations",
 	number: "17",
 	color: {
-		name: "yellow",
-		r: 253,
-		g: 221,
-		b: 56
+		name: "pink",
+		r: 251,
+		g: 75,
+		b: 152
 	},
 	title: "Lumarca",
 	location: "Rm. 029 - Interactive Media Lab",
@@ -528,14 +528,14 @@ _exports.data = [
 	tags: ["interactive media"],
 	floor: "ground"
 }, {
-	_id: "yellow18",
+	_id: "pink18",
 	category: "Installations",
 	number: "18",
 	color: {
-		name: "yellow",
-		r: 253,
-		g: 221,
-		b: 56
+		name: "pink",
+		r: 251,
+		g: 75,
+		b: 152
 	},
 	title: "Hole in the Floor",
 	location: "Rm. 155 - Interactive Media Studio",
@@ -545,14 +545,14 @@ _exports.data = [
 	tags: ["interactive media"],
 	floor: "first"
 }, {
-	_id: "yellow20",
+	_id: "pink20",
 	category: "Installations",
 	number: "20",
 	color: {
-		name: "yellow",
-		r: 253,
-		g: 221,
-		b: 56
+		name: "pink",
+		r: 251,
+		g: 75,
+		b: 152
 	},
 	title: "DJ Booth Zoetrope",
 	location: "East Plaza",
@@ -562,14 +562,14 @@ _exports.data = [
 	tags: ["interactive media"],
 	floor: "first"
 }, {
-	_id: "yellow19",
+	_id: "pink19",
 	category: "Installations",
 	number: "19",
 	color: {
-		name: "yellow",
-		r: 253,
-		g: 221,
-		b: 56
+		name: "pink",
+		r: 251,
+		g: 75,
+		b: 152
 	},
 	title: "Color Matrix",
 	location: "Space between Rm. 153 & Rm. 155",
@@ -579,14 +579,14 @@ _exports.data = [
 	tags: ["interactive media"],
 	floor: "first"
 }, {
-	_id: "yellow35",
+	_id: "pink35",
 	category: "Open Studios",
 	number: "35",
 	color: {
-		name: "yellow",
-		r: 253,
-		g: 221,
-		b: 56
+		name: "pink",
+		r: 251,
+		g: 75,
+		b: 152
 	},
 	title: "IM Class Projects",
 	location: "Rm. 029 - Interactive Media lab",
@@ -596,14 +596,14 @@ _exports.data = [
 	tags: ["interative media"],
 	floor: "ground"
 }, {
-	_id: "yellow36",
+	_id: "pink36",
 	category: "Open Studios",
 	number: "36",
 	color: {
-		name: "yellow",
-		r: 253,
-		g: 221,
-		b: 56
+		name: "pink",
+		r: 251,
+		g: 75,
+		b: 152
 	},
 	title: "Howler Radio",
 	location: "Rm. 155 - Interactive Media Studio",
@@ -658,10 +658,10 @@ _exports.data = [
 		g: 137,
 		b: 240
 	},
-	title: "Recording a Live Band at NYUAD Music Studios",
-	location: "Rm. 141, 142, 143",
+	title: "Live Band recording at NYUAD Music Studios",
+	location: "Rm. 141, 142, 143: Studio A & B",
 	timing: "6 - 8pm",
-	description: "Band performing & recording throughout the event in the live room.",
+	description: "A community band performing different a musical repertoire from jazz to funk and rock. Professor Matteo Marciano will walk music students through placement of microphones and associated techniques used for the recording, room acoustic, signal flow and live mixing.",
 	program: "Music",
 	tags: ["music"],
 	floor: "first"
@@ -676,7 +676,7 @@ _exports.data = [
 		b: 251
 	},
 	title: "Attitude Dance Club: Call & Open",
-	location: "Arts Center Lobby",
+	location: "Black Box Lobby",
 	timing: "6 - 6:15pm",
 	description: "Many arts festivals and carnivals around the world have a parade for calling the inauguration of the actual event. This is an experimental piece in which performers are part of the crowd and then part of a central stage. Our movement exercises with the audience, voices in the air, and palms clapping, will call you to explore bits of theater, flamenco, samba and contemporary dance as you make your way into the Open Studios.",
 	program: "SIG",
@@ -988,7 +988,7 @@ _exports.data = [
 	title: "Foundations of 3D (2016) Exhibition: Modular Cubes",
 	location: "",
 	timing: "6 - 8pm",
-	description: "Installation of modular works produced by Spring 2016 sculpture students.",
+	description: "Installation of modular works produced by Spring 2016 sculpture students with Professor Sandra Peters.",
 	program: "Vis Arts",
 	tags: ["vis arts"],
 	floor: "ground"
@@ -1036,10 +1036,10 @@ _exports.data = [
 		g: 43,
 		b: 52
 	},
-	title: "Painting by Seeing: RED",
+	title: "Painting by Seeing",
 	location: "Rm. 174 - Mixed Media Studio",
 	timing: "6 - 8pm",
-	description: "Each participant agreed to make a painting with the proviso to use the same color red and a 24 x 30 in. panel.",
+	description: "Works-in-progress from John Torreano’s Painting by Seeing class.",
 	program: "Vis Arts",
 	tags: ["vis arts"],
 	floor: "first"
@@ -1122,7 +1122,7 @@ _exports.data = [
 		b: 52
 	},
 	title: "The Impossible Pictograms",
-	location: "Various",
+	location: "Throughout Arts Center",
 	timing: "6 - 8pm",
 	description: "Students of the Wayfinding Class design formally correct pictograms for impossible solutions to design problems around campus and showcase their work throughout the building in relation to its features.",
 	program: "Vis Arts",
