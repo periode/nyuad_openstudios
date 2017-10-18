@@ -101,8 +101,8 @@ function initMap(){
 
 	  // Set initial position.
 	  canvas.style.position = 'absolute'; // 'absolute' also works.
-	  canvas.addEventListener('touchstart', dragStart);
-	  canvas.addEventListener('touchmove',  dragMove);
+	  // canvas.addEventListener('touchstart', dragStart);
+	  // canvas.addEventListener('touchmove',  dragMove);
 }
 
 function switchMap(){
