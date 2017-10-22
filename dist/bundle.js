@@ -364,10 +364,10 @@ _exports.data = [
 		g: 173,
 		b: 58
 	},
-	title: "What Degas Saw - Children's Book",
+	title: "What Degas Saw",
 	location: "Rm. 019 - Editing Lab",
 	timing: "6 - 8pm",
-	description: "The first project of the 'Sound Image Story' class was to draw and tell a story in a simple style of what each student saw when arriving to Abu Dhabi. We are sharing these children's books with you.",
+	description: "Exhibition of children’s books created by students in the Sound, Image, Story class and inspired by the book What Degas Saw and the experiences they had upon first arrival in Abu Dhabi.",
 	program: "Film",
 	tags: ["film"],
 	floor: "ground"
@@ -384,7 +384,7 @@ _exports.data = [
 	title: "Capturing Science",
 	location: "Rm. 157",
 	timing: "6 - 8pm",
-	description: "A group of NYUAD students under the guidance of award-winning science photographer Enrico Sacchetti learned how to look at science and technology with the eye of an abstract artist. The pictures in this series are a result of a three-day workshop in which the group was lead through our campus laboratories to produce photographs worthy of the cover of the most prestigious science journals.",
+	description: "Exhibition of photographs created by Science and Art students who participated in a three-day workshop with award-winning Science Photographer Enrico Sacchetti. Images showcase our Science laboratories and demonstrate how to look at science and technology with the eye of an abstract artist.",
 	program: "VisArts",
 	tags: ["visarts"],
 	floor: "first"
@@ -418,7 +418,7 @@ _exports.data = [
 	title: "Cool Kit: NYUAD Film Gear",
 	location: "In front of the Equipment Center",
 	timing: "6 - 8pm",
-	description: "Exhibiting a selection of film production equipment that is generally used by our students.",
+	description: "Visit our Equipment Center to see and learn more about the amazing filmmaking and photography equipment available to NYUAD arts students.",
 	program: "Film",
 	tags: ["film"],
 	floor: "ground"
@@ -435,7 +435,7 @@ _exports.data = [
 	title: "'Film and New Media' Makes Films!",
 	location: "Room 101 - Basement Screening ",
 	timing: "6 - 8pm",
-	description: "Head down to the basement for where a selection of films will be screened from each of the Film and New Media practice classes, including 'Sound Image Story', 'Intermediate Film', 'Directing the Non-Actor', 'Docu-Fiction' and 'Capstone Projects'.",
+	description: "A selection of films will be screened from each of the Film and New Media practice classes, including Sound Image Story, Intermediate Film, Directing the Non-Actor, Docu-Fiction and Capstone Projects. Located on the B1 level directly below the Red Theater.",
 	program: "Film",
 	tags: ["film"],
 	floor: "ground"
@@ -452,7 +452,7 @@ _exports.data = [
 	title: "Acting for the Camera with Scandar Copti",
 	location: "Rm. 006 - MultiPurpose Room",
 	timing: "6 - 8pm",
-	description: "Scandar Copti will be conducting a series of Singular Drama acting exercises. No prior experience needed! So please come, and join the exercises to try acting yourself.",
+	description: "Join Prof Scandar Copti for a series of Singular Drama acting exercises. No experience necessary!",
 	program: "Film",
 	tags: ["film"],
 	floor: "ground"
@@ -486,7 +486,7 @@ _exports.data = [
 	title: "Lights, Camera, Action",
 	location: "Rm. 025 - Sound Stage",
 	timing: "6 - 8pm",
-	description: "Purpose built set in a sound stage that is lit with professional lighting and multiple cameras in different positions. We will film actors while we also let you take part being either an actor or working as part of the production team.",
+	description: "Visit our purpose built set in the Sound Stage which will be equipped with professional lights cameras and lights. Watch the action or take part as an actor or member of our production crew.",
 	program: "Film",
 	tags: ["film"],
 	floor: "ground"
@@ -591,7 +591,7 @@ _exports.data = [
 	title: "IM Class Projects",
 	location: "Rm. 029 - Interactive Media lab",
 	timing: "6 - 8pm",
-	description: "The lab will be alive all evening with projects from all of the Interactive Media courses, student assistants, and faculty. Stop in and play with interactive installations, software art, robots, web applications, and handmade electronics.",
+	description: "The lab comes to life for the evening with projects from the Interactive Media courses, student assistants, and faculty. Stop in and play with interactive installations, software art, robots, web applications, and handmade electronics.",
 	program: "Interactive Media",
 	tags: ["interative media"],
 	floor: "ground"
@@ -608,7 +608,7 @@ _exports.data = [
 	title: "Howler Radio",
 	location: "Rm. 155 - Interactive Media Studio",
 	timing: "6 - 8pm",
-	description: "Howler Radio DJs will be spending the evening interviewing Arts Center faculty and playing songs for art making, art teaching, and art buying!",
+	description: "Howler Radio DJs conduct live interviews with Arts faculty and play songs selected for art making, art teaching, and art buying.",
 	program: "Interactive Media",
 	tags: ["interactive media"],
 	floor: "first"
@@ -627,7 +627,7 @@ _exports.data = [
 	title: "Surround Sound Film Showcase",
 	location: "Rm. 111 - Music Composition Room",
 	timing: "6 - 8pm",
-	description: "Showcase of 5.1 Surround Sound Film with Mix.",
+	description: "Showcase of 5.1 audio surround film mix.",
 	program: "Music",
 	tags: ["music"],
 	floor: "first"
@@ -641,10 +641,10 @@ _exports.data = [
 		g: 137,
 		b: 240
 	},
-	title: "Music Student Showcase & Showreel",
+	title: "Music Student Works & Showreel",
 	location: "Rm. 112 - Music Classroom",
 	timing: "6 - 8pm",
-	description: "Student work will be shown on workstations via headphones. A Music Showreel about the program will be shown on a projector.",
+	description: "Visit a screen-based exhibition of Music student projects and watch a short showreel featuring Music program offerings.",
 	program: "Music",
 	tags: ["music"],
 	floor: "first"
@@ -661,7 +661,7 @@ _exports.data = [
 	title: "Live Band recording at NYUAD Music Studios",
 	location: "Rm. 141, 142, 143: Studio A & B",
 	timing: "6 - 8pm",
-	description: "A community band performing different a musical repertoire from jazz to funk and rock. Professor Matteo Marciano will walk music students through placement of microphones and associated techniques used for the recording, room acoustic, signal flow and live mixing.",
+	description: "Student performers demonstrate a live recording session with Prof Matteo Marciano. Learn techniques for placing microphones, recording room acoustics, signal flow, and live mixing.",
 	program: "Music",
 	tags: ["music"],
 	floor: "first"
@@ -729,7 +729,7 @@ _exports.data = [
 	title: "Music Student Performances",
 	location: "Rm. 10 Music Ensemble Room",
 	timing: "6 - 8pm",
-	description: "An informal session in which students in the Music Program share pieces they are preparing this semester.",
+	description: "An informal session in which students of the Music Program share pieces they are preparing this semester.",
 	program: "Music",
 	tags: ["music"],
 	floor: "ground"
@@ -746,13 +746,13 @@ _exports.data = [
 	title: "LIVE Electronic Music Performance and VJ",
 	location: "Rm. 116 - MultiPurpose Class Room",
 	timing: "6 - 7:30pm",
-	description: "Electronic music performances with analog synthesizers and digital music workstations performed by Omar Shoukri with a live VJ Performance & Exhibition by Harshini Karunaratne. The VJ set is being projected on one screen while a live camera feeds another projector to demonstrate how the performers and music setup interacts with the resulting visuals.",
+	description: "Electronic music performances and exhibitions featuring Arts Instructor Omar Shoukri and student artist Harshini Karunaratne.",
 	program: "Music",
 	tags: ["music"],
 	floor: "first"
 }, {
 	_id: "blue01",
-	category: "Peformances",
+	category: "Peformance/Exhibitions",
 	number: "01",
 	color: {
 		name: "blue",
@@ -760,10 +760,10 @@ _exports.data = [
 		g: 137,
 		b: 240
 	},
-	title: "Opening DJ Set",
+	title: "Live DJ Performance",
 	location: "East Plaza",
 	timing: "4 - 6pm",
-	description: "Students of the 'Electronic Music Performance' course by Instructor Omar Shoukri are performing a warm-up DJ set to welcome the audience to the Open Studios event.",
+	description: "Arts Instructor Omar Shoukri’s EMP students perform a warm-up DJ set to welcome attendees to Open Studios.",
 	program: "Music",
 	tags: ["music"],
 	floor: "ground"
@@ -777,10 +777,10 @@ _exports.data = [
 		g: 137,
 		b: 240
 	},
-	title: "Finale: DJ Set",
+	title: "DJ Dance Party Finale",
 	location: "East Plaza",
 	timing: "8 - 9pm",
-	description: "Omar Shoukri performs a live final DJ set with selected music tracks of the entire Open Studios planning team. Everybody is welcome to dance in front of the Arts Center.",
+	description: "Our custom-built DJ booth becomes Mission Control for an audiovisual journey through space. Come dance through the NYUAD nebula with interactive projection maps and the cool vibes of Arts Instructor Omar Shoukri.",
 	program: "Music",
 	tags: ["music"],
 	floor: "ground"
@@ -831,7 +831,7 @@ _exports.data = [
 	title: "DJing 'the Old-School Way'",
 	location: "Rm. 133 - DJ Studio",
 	timing: "6 - 8pm",
-	description: "Students of Omar Shoukri's 'Electronic Music Performance' course are performing a live DJ set on the Native Instruments Traktor system using analog turntables. Guests are invited to have a peek into the world of DJing and manipulating digital music tracks with an analog setup.",
+	description: "Arts Instructor Omar Shoukri’s EMP students perform a live DH set on the Native Instruments Traktor system using analog turntables. Guests will get a sneak peak into the world of DJ performance and manipulating digital music tracks with analog tools.",
 	program: "Music",
 	tags: ["music"],
 	floor: "first"
@@ -866,7 +866,7 @@ _exports.data = [
 	},
 	title: "Open Rehearsal for the Mainstage Student Theater Production",
 	location: "Black Box",
-	timing: "6 - 8pm",
+	timing: "7 - 8pm",
 	description: "The creative team and cast open the doors of the Black Box to welcome guests for a behind-the-scene peek inside the rehearsal room for the Fall Mainstage Student Production of Olivier Kemeid's The Aeneid, directed by visiting artist, Sarah Cameron Sunde. For the safety and respect of performers, please turn off cell phones and refrain from talking during the rehearsal.",
 	program: "Theater",
 	tags: ["theater"],
@@ -889,9 +889,9 @@ _exports.data = [
 	tags: ["theater"],
 	floor: "ground"
 }, {
-	_id: "orange05",
+	_id: "orange2",
 	category: "Performances",
-	number: "05",
+	number: "21",
 	color: {
 		name: "orange",
 		r: 246,
@@ -935,7 +935,7 @@ _exports.data = [
 	title: "Readings - Introduction to Playwriting",
 	location: "Studio 146",
 	timing: "6 - 8pm",
-	description: "Listen to works-in-process from students in 'Introduction to Playwriting' taught by Visiting Associate Professor of Practice of Theater, Abhishek Majumdar.",
+	description: "Listen to works-in-process from students in Fundamentals of Playwriting taught by Visiting Associate Professor of Practice of Theater, Abhishek Majumdar.",
 	program: "Theater",
 	tags: ["theater"],
 	floor: "first"
@@ -1005,7 +1005,7 @@ _exports.data = [
 	title: "Major Talent: Work by Art History and Visual Art Majors",
 	location: "Rm. 030 - Hallway (behind)",
 	timing: "6 - 8pm",
-	description: "This exhibition showcases work by 'Art and Art History' majors.",
+	description: "Exhibition showcasing selected works by Vis Arts majors.",
 	program: "Vis Arts",
 	tags: ["vis arts"],
 	floor: "ground"
@@ -1088,7 +1088,7 @@ _exports.data = [
 		b: 52
 	},
 	title: "Foundations of 4D: Rejection",
-	location: "The Cube",
+	location: "The Cube & Rm. 043",
 	timing: "6 - 8pm",
 	description: "Students conduct artistic research regarding the universal experience of breaking up. They share personal break up letters, interperet them as artists, and choose members of the community to respond uniquely to these letters.",
 	program: "Vis Arts",
@@ -1158,7 +1158,7 @@ _exports.data = [
 	title: "Wood Shop Projects",
 	location: "Rm. 041 - Woodshop",
 	timing: "6 - 8pm",
-	description: "Come explore the Wood Shop! Dan Osleeb will be doing a dovetail cutting demo and showing fine wood working pieces. Ask him about tool training!",
+	description: "Come and explore our amazing Wood Shop with Arts Instructor Dan Osleeb. Watch demos, view fine woodworking examples, and learn more about Tool Training Workshops for students.",
 	program: "Vis Arts",
 	tags: ["vis arts"],
 	floor: "ground"
@@ -1192,7 +1192,7 @@ _exports.data = [
 	title: "Faculty Open Studios",
 	location: "Vis Arts Faculty Studios",
 	timing: "6 - 8pm",
-	description: "Arts faculty research spaces featuring new works and works-in-progress.",
+	description: "Arts faculty research and production spaces featuring new works and works-in-progress.",
 	program: "Vis Arts",
 	tags: ["vis arts"],
 	floor: "first"
@@ -1214,21 +1214,38 @@ _exports.data = [
 	tags: ["vis arts"],
 	floor: "first"
 }, {
-	_id: "red14",
+	_id: "blue5",
 	category: "Performances",
-	number: "14",
+	number: "05",
 	color: {
-		name: "red",
-		r: 238,
-		g: 43,
-		b: 52
+		name: "blue",
+		r: 74,
+		g: 137,
+		b: 240
 	},
 	title: "Four6",
 	location: "Elevator Lobby",
 	timing: "7 - 7:30pm",
 	description: "A live performance of one of John Cage's classic 'indeterminate' scores representing the viral network at play.",
-	program: "Vis Arts",
-	tags: ["vis arts"],
+	program: "Music",
+	tags: ["music"],
+	floor: "ground"
+}, {
+	_id: "orange14",
+	category: "Performances",
+	number: "14",
+	color: {
+		name: "orange",
+		r: 246,
+		g: 131,
+		b: 50
+	},
+	title: "Launch Initiation Happening",
+	location: "Converges on East Plaza",
+	timing: "8 - 8:15pm",
+	description: "Take to the halls and join the coundown as we converge on Mission Contol to ignite our evening's finale.",
+	program: "Arts Center",
+	tags: ["arts center"],
 	floor: "ground"
 }, {
 	_id: "red30",
