@@ -2593,8 +2593,13 @@ function initSocket() {
     if (data.stream) {
       stream.style.display = "block";
       // stream.setAttribute('class', 'streaming');
-      stream.style.width = "125%";
-      stream.style.height = '105%';
+
+      if (!isMobile()) {
+        stream.style.width = "125%";
+        stream.style.height = '105%';
+      } else {
+        stream.style.marginLeft = '10%';
+      }
     }
 
     stream.src = "../dist/loading-darts.gif";
@@ -2620,19 +2625,35 @@ function initSocket() {
     if (countdown.style.display == "block") countdown.style.display = "none";
 
     stream.style.display = "block";
-    stream.style.width = "125%";
-    stream.style.height = '105%';
+    if (!isMobile()) {
+      stream.style.width = "125%";
+      stream.style.height = '105%';
+    } else {
+      stream.style.marginLeft = '10%';
+    }
   });
 
   socket.on('hide-stream', function () {
     stream.src = "../dist/loading-darts.gif";
     stream.style.width = "100%";
     stream.style.height = '100%';
+
+    if (isMobile()) {
+      stream.style.marginLeft = '0%';
+    }
   });
 
   socket.on('new-frame', function (data) {
     stream.src = data;
   });
+}
+
+function isMobile() {
+  if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/webOS/i) || navigator.userAgent.match(/iPhone/i) || navigator.userAgent.match(/iPad/i) || navigator.userAgent.match(/iPod/i) || navigator.userAgent.match(/BlackBerry/i) || navigator.userAgent.match(/Windows Phone/i)) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 /***/ }),
