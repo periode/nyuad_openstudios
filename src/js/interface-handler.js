@@ -32,8 +32,13 @@ function initSocket(){
       countdown.style.display = "none";
     }
 
-    if(data.stream)
+    if(data.stream){
       stream.style.display = "block";
+      // stream.setAttribute('class', 'streaming');
+      stream.style.width = "125%";
+      stream.style.height = '105%';
+    }
+
 
     stream.src = "../dist/loading-darts.gif";
   });
@@ -60,12 +65,14 @@ function initSocket(){
       countdown.style.display = "none";
 
     stream.style.display = "block";
-    stream.setAttribute('class', 'offset');
+    stream.style.width = "125%";
+    stream.style.height = '105%';
   });
 
   socket.on('hide-stream', function(){
     stream.src = "../dist/loading-darts.gif";
-    stream.removeAttribute('class');
+    stream.style.width = "100%";
+    stream.style.height = '100%';
   });
 
   socket.on('new-frame', function(data){

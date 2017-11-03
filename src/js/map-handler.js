@@ -62,7 +62,7 @@ function initMap(){
 	      canvas.style.top = '-8%';
 	      canvas.style.left = '-10%';
 	      ground_floor.bounds.width = window.innerWidth*0.8;
-	      ground_floor.bounds.height = window.innerHeight;
+	      ground_floor.bounds.height = window.innerHeight;``
 	    }else{
 	      ground_floor.bounds.width = mobile_w;
 	      ground_floor.bounds.height = mobile_h;

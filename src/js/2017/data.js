@@ -31,11 +31,29 @@ exports.data = [
 			b: 52
 		},
 		title: "Capturing Science",
-		location: "Rm. 157",
+		location: "Costume Shop Hallway",
 		timing: "6 - 8pm",
 		description: "Exhibition of photographs created by Science and Art students who participated in a three-day workshop with award-winning Science Photographer Enrico Sacchetti. Images showcase our Science laboratories and demonstrate how to look at science and technology with the eye of an abstract artist.",
-		program: "VisArts",
+		program: "Vis Arts",
 		tags: ["visarts"],
+		floor: "first"
+	},
+	{
+		_id: "pink55",
+		category: "Exhibitions & Showcases",
+		number: "55",
+		color: {
+			name: "pink",
+			r: 251,
+			g: 75,
+			b: 152
+		},
+		title: "Digital Curation",
+		location: "Rm. 118",
+		timing: "6 - 8pm",
+		description: "The students of CADT-UH 1018 (Digital Curation) will present drafts of their project curating some aspect of open cultural data in web published multimedia essays using Omeka and Neatline.",
+		program: "Interactive Media",
+		tags: ["im"],
 		floor: "first"
 	},
 	{
@@ -990,7 +1008,7 @@ exports.data = [
 			b: 52
 		},
 		title: "Loom Info Sessions - Give It a Try!",
-		location: "Rm. 161 - Collaboratory Studio",
+		location: "Rm. 157 - Costume Shop",
 		timing: "6 - 7pm",
 		description: "Come meet the looms that are now part of the NYUAD Visual Arts landscape! Sit at the loom and give this ancient and contemporary technology a try! A collective cloth will be woven.",
 		program: "Vis Arts",

@@ -175,7 +175,7 @@ function initMap() {
 						canvas.style.top = '-8%';
 						canvas.style.left = '-10%';
 						ground_floor.bounds.width = window.innerWidth * 0.8;
-						ground_floor.bounds.height = window.innerHeight;
+						ground_floor.bounds.height = window.innerHeight;'';
 				} else {
 						ground_floor.bounds.width = mobile_w;
 						ground_floor.bounds.height = mobile_h;
@@ -382,11 +382,28 @@ _exports.data = [
 		b: 52
 	},
 	title: "Capturing Science",
-	location: "Rm. 157",
+	location: "Costume Shop Hallway",
 	timing: "6 - 8pm",
 	description: "Exhibition of photographs created by Science and Art students who participated in a three-day workshop with award-winning Science Photographer Enrico Sacchetti. Images showcase our Science laboratories and demonstrate how to look at science and technology with the eye of an abstract artist.",
-	program: "VisArts",
+	program: "Vis Arts",
 	tags: ["visarts"],
+	floor: "first"
+}, {
+	_id: "pink55",
+	category: "Exhibitions & Showcases",
+	number: "55",
+	color: {
+		name: "pink",
+		r: 251,
+		g: 75,
+		b: 152
+	},
+	title: "Digital Curation",
+	location: "Rm. 118",
+	timing: "6 - 8pm",
+	description: "The students of CADT-UH 1018 (Digital Curation) will present drafts of their project curating some aspect of open cultural data in web published multimedia essays using Omeka and Neatline.",
+	program: "Interactive Media",
+	tags: ["im"],
 	floor: "first"
 }, {
 	_id: "green16",
@@ -1292,7 +1309,7 @@ _exports.data = [
 		b: 52
 	},
 	title: "Loom Info Sessions - Give It a Try!",
-	location: "Rm. 161 - Collaboratory Studio",
+	location: "Rm. 157 - Costume Shop",
 	timing: "6 - 7pm",
 	description: "Come meet the looms that are now part of the NYUAD Visual Arts landscape! Sit at the loom and give this ancient and contemporary technology a try! A collective cloth will be woven.",
 	program: "Vis Arts",
@@ -2573,7 +2590,12 @@ function initSocket() {
       countdown.style.display = "none";
     }
 
-    if (data.stream) stream.style.display = "block";
+    if (data.stream) {
+      stream.style.display = "block";
+      // stream.setAttribute('class', 'streaming');
+      stream.style.width = "125%";
+      stream.style.height = '105%';
+    }
 
     stream.src = "../dist/loading-darts.gif";
   });
@@ -2598,12 +2620,14 @@ function initSocket() {
     if (countdown.style.display == "block") countdown.style.display = "none";
 
     stream.style.display = "block";
-    stream.setAttribute('class', 'offset');
+    stream.style.width = "125%";
+    stream.style.height = '105%';
   });
 
   socket.on('hide-stream', function () {
     stream.src = "../dist/loading-darts.gif";
-    stream.removeAttribute('class');
+    stream.style.width = "100%";
+    stream.style.height = '100%';
   });
 
   socket.on('new-frame', function (data) {
