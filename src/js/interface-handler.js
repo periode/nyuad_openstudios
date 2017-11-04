@@ -7,7 +7,7 @@ exports.init = function(){
   countdown = document.getElementById('countdown');
   stream = document.getElementById('stream');
 
-  if(SOCKET_SERVER != undefined)
+  if(SOCKET_SERVER != undefined && !navigator.userAgent.match(/Safari/i))
     initSocket();
 };
 
@@ -40,7 +40,8 @@ function initSocket(){
         stream.style.width = "125%";
         stream.style.height = '105%';
       }else{
-        stream.style.marginLeft = '10%';
+        // stream.style.width = "125%";
+        stream.style.marginLeft = '0%';
       }
 
     }
@@ -75,7 +76,8 @@ function initSocket(){
       stream.style.width = "125%";
       stream.style.height = '105%';
     }else{
-      stream.style.marginLeft = '10%';
+      // stream.style.width = "125%";
+      stream.style.marginLeft = '0%';
     }
   });
 
@@ -90,6 +92,7 @@ function initSocket(){
   });
 
   socket.on('new-frame', function(data){
+    // stream.crossOrigin = "Anonymous";
     stream.src = data;
   });
 }
@@ -102,6 +105,7 @@ function isMobile() {
        || navigator.userAgent.match(/iPod/i)
        || navigator.userAgent.match(/BlackBerry/i)
        || navigator.userAgent.match(/Windows Phone/i)
+       || navigator.userAgent.match(/Safari/i)
        ){
           return true;
         }

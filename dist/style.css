@@ -184,10 +184,6 @@ hr {
   -o-transition: background-color .15s linear;
   -ms-transition: background-color .15s linear;
   transition: background-color .15s linear; }
-
-#stream {
-  width: 600px;
-  height: 600px; }
 .top-image {
   width: 100%;
   height: auto;
@@ -203,7 +199,8 @@ hr {
   position: relative;
   float: right;
   margin-left: 60%;
-  width: 40%; }
+  width: 40%;
+  z-index: 3; }
 
 .info-container {
   width: 80%;
